@@ -191,18 +191,7 @@
     <!-- Template Main JS File -->
     <script src="~/js/main.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
-    <script>
-        $(document).ready(function () {
-            $("#Button1").click(function () {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Something went wrong!',
-                    footer: '<a href>Why do I have this issue?</a>'
-                });
-            });
-        });
-    </script>
+
 </body>
 
 </html>

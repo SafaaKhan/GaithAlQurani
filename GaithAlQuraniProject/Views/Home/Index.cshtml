@@ -73,19 +73,37 @@
                         </div>
                         <div class="card-body ">
                             <p class="card-text  ">@group.Information</p>
-                            <button class="btn btn-secondary btn-sm">اقرئي المزيد</button>
+                            <button class="btn btn-secondary btn-sm" ID="@group.Id" runat="server">  اقرئي المزيد</button>
                             <a class="btn btn-danger btn-sm" href="#">انضمام</a>
-
                         </div>
                     </div>
                 </div>
 
-            }
+                                }
         </div>
     </div>
-    <button class="btn btn-secondary btn-sm" ID="Button1" runat="server">اقرئي المزيد</button>
+
+
 </section><!-- End Featured Services Section -->
 
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            for (i = 1; i <= @GaithGroups.Count(); i++) {
+                $("#"+i).click(function () {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'فكرة مجموعة غيث..',
+                        text: 'خمسة أيام حفظ نصف صفحة مع مراجعة ربع حزب(مراجعة ما تم حفظه), يوم إجازة, يوم إما اختبار و إما مراجعة ما تم حفظه خلال الاسبوع ',
+                        button: "Aww yiss!",
+                    });
+                });
+            }
+           
+        });
+    </script>
+}
 
 
 

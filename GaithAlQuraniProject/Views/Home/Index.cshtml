@@ -68,18 +68,21 @@
             {
                 <div class=" col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-2">
                     <div class="card" data-aos="fade-up" data-aos-delay="100" style="width:100%">
-                        <div class="card-header " style="background: #2eced9; color:#fff">
-                            @group.Title
+                        <div class="card-header" style="background: #2eced9; color:#fff">
+                            <h6>@group.Title</h6> 
                         </div>
-                        <div class="card-body ">
-                            <p class="card-text  ">@group.Information</p>
-                            <button class="btn btn-secondary btn-sm" ID="@group.Id" runat="server">  اقرئي المزيد</button>
-                            <a class="btn btn-danger btn-sm" href="#">انضمام</a>
+                        <div class="card-body">
+                            <p class="card-text">@group.Information</p>
+                            <button class="btn btn-secondary btn-sm read-more-btn " runat="server" style="float: right;">  اقرئي المزيد</button>
+                            <a class="btn btn-danger btn-sm " href="#" style="float: right; margin-right:1rem">انضمام</a>
+                            <div class="read-more-title" style="color:aqua" thevalue="@group.Title"></div>
+                            <div class="read-more-content" thevalue="@group.MoreInformation"></div>
+
                         </div>
                     </div>
                 </div>
 
-                                }
+            }
         </div>
     </div>
 
@@ -90,20 +93,20 @@
 @section Scripts {
     <script>
         $(document).ready(function () {
-            for (i = 1; i <= @GaithGroups.Count(); i++) {
-                $("#"+i).click(function () {
-                    Swal.fire({
+
+            $("body").on("click", ".read-more-btn", function () {
+                Swal.fire({
+                    title: $(this).parent().find(".read-more-title").attr("thevalue"),
                         icon: 'info',
-                        title: 'فكرة مجموعة غيث..',
-                        text: 'خمسة أيام حفظ نصف صفحة مع مراجعة ربع حزب(مراجعة ما تم حفظه), يوم إجازة, يوم إما اختبار و إما مراجعة ما تم حفظه خلال الاسبوع ',
-                        button: "Aww yiss!",
+                        html:
+                            $(this).parent().find(".read-more-content").attr("thevalue"),
+                        showCloseButton: true,
+                        showCancelButton: false,
+                        focusConfirm: false,
+                        showConfirmButton: false,
+                        footer: '   '
                     });
-                });
-            }
-           
+            });   
         });
     </script>
 }
-
-
-

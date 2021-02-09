@@ -1811,3 +1811,53 @@ section {
   text-align: center;
   font-size: 13px;
 }
+
+
+.card-header h6
+ {
+    text-align: right;
+}
+
+.card-text {
+    text-align: right;
+}
+
+.swal2-icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+.swal2-icon .swal2-icon-content{
+    font-size: 3rem;
+}
+
+    .swal2-icon.swal2-info {
+        border-color: indianred;
+        color: #dc3545;
+    }
+
+
+.swal2-title {
+    color: #2eced9;
+}
+
+
+.swal2-close {
+    width: 1.2em;
+    height: 1.2em;
+    padding: 0;
+    overflow: hidden;
+    transition: color .1s ease-out;
+    border: #2eced9;
+    border-radius: 5px;
+    background: 0 0;
+    color: #2eced9;
+    font-family: serif;
+    font-size: 3rem;
+    line-height: 1.2;
+    cursor: pointer;
+}
+
+.swal2-html-container{
+    font-weight: 800;
+}

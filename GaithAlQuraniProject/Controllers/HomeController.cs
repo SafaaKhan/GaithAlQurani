@@ -35,6 +35,32 @@ namespace GaithAlQuraniProject.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Create(int id)
+        {
+            RegistrationForm registrationForm = new RegistrationForm
+            {
+                GaithGroupId=id
+            };
+
+            return View("RegistrationForm", registrationForm);
+        }
+
+        public IActionResult SaveRegistratonForm(RegistrationForm registrationForm)
+        {
+            RegistrationForm registrationFormTest = new RegistrationForm
+            {
+                GaithGroupId = registrationForm.GaithGroupId,
+                Name=registrationForm.Name,
+                phoneNumber=registrationForm.phoneNumber
+            };
+            _db.RegistrationForms.Add(registrationFormTest);
+            _db.SaveChanges();
+            ViewData["News"] = _db.News.ToList();
+            ViewData["GaithGroups"] = _db.GaithGroups.ToList();
+            return View("Index");//show a message it has been saved 
+        }
+
 
         public IActionResult Privacy()
         {

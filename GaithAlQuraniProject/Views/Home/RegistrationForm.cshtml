@@ -1,0 +1,73 @@
+﻿@model GaithAlQuraniProject.Models.RegistrationForm
+
+@{
+    ViewData["Title"] = "RegistrationForm";
+}
+
+
+<section ></section>
+  <section id="appointment" class="appointment section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>التسجيل</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <form asp-action="SaveRegistratonForm" role="form" data-aos="fade-up" data-aos-delay="100">
+          <div class="row">
+            <div class="col-md-4 form-group">
+              <input type="text" asp-for="Name" class="form-control"  placeholder="اسمك" >
+              <div class="validate"></div>
+            </div>
+            <div class="col-md-4 form-group mt-3 mt-md-0">
+              <input  class="form-control" name="email" id="email" placeholder="الدولة" >
+              <div class="validate"></div>
+            </div>
+            <div class="col-md-4 form-group mt-3 mt-md-0">
+              <input type="tel" class="form-control" asp-for="phoneNumber" placeholder="  (رقم جوال (واتساب " >
+              <div class="validate"></div>
+            </div>
+            <div class="col-md-4 form-group mt-3 mt-md-0">
+              <input  class="form-control" asp-for="GaithGroupId" value="@Model.GaithGroupId" hidden>
+              <div class="validate"></div>
+            </div>
+          </div>
+          <div class="row">
+           @*   <div class="col-md-4 form-group mt-3">
+              <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>*@
+            <div class="col-md-4 form-group mt-3">
+              <select name="department" id="department" class="form-select"> @* from db *@
+                <option value="">الرواية</option>
+                <option value="Department 1">حفص</option>
+                <option value="Department 2">ورش</option>
+                <option value="Department 3">قارون</option>
+              </select>
+              <div class="validate"></div>
+            </div>
+          @*   <div class="col-md-4 form-group mt-3">
+              <select name="doctor" id="doctor" class="form-select">
+                <option value="">Select Doctor</option>
+                <option value="Doctor 1">Doctor 1</option>
+                <option value="Doctor 2">Doctor 2</option>
+                <option value="Doctor 3">Doctor 3</option>
+              </select>
+              <div class="validate"></div>
+            </div>*@
+          </div>
+          @*  
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
+            <div class="validate"></div>
+          </div>*@
+          <div class="mb-3">
+          <div class="text-center"><button type="submit">التسجيل</button></div>
+        </form>
+
+      </div> 
+
+    </section><!-- End Appointment Section -->
+
+

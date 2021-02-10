@@ -16,5 +16,6 @@ namespace GaithAlQuraniProject.Data
 
         public DbSet<News> News { set; get; }
         public DbSet<GaithGroup> GaithGroups { set; get; }
+        public DbSet<RegistrationForm> RegistrationForms { set; get; }
     }
 }

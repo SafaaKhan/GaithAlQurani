@@ -55,6 +55,9 @@
     </div>
 </section><!-- End Hero -->
 @*<partial name="~/Views/Home/GaithGroups.cshtml" />*@
+
+<div id="placeHolderHere"></div>
+
 <!-- ======= Featured Services Section ======= -->
 <section id="featured-services" class="featured-services">
     <div class="container" data-aos="fade-up">
@@ -74,10 +77,9 @@
                         <div class="card-body">
                             <p class="card-text">@group.Information</p>
                             <button class="btn btn-secondary btn-sm read-more-btn " runat="server" style="float: right;">  اقرئي المزيد</button>
-                            <a class="btn btn-danger btn-sm " href="#" style="float: right; margin-right:1rem">انضمام</a>
-                            <div class="read-more-title" style="color:aqua" thevalue="@group.Title"></div>
+                            <a class="btn btn-danger btn-sm test" style="float: right; margin-right:1rem" href="/home/create/@group.Id"  >انضمام</a>
+                            <div class="read-more-title"  thevalue="@group.Title"></div>
                             <div class="read-more-content" thevalue="@group.MoreInformation"></div>
-
                         </div>
                     </div>
                 </div>
@@ -85,7 +87,6 @@
             }
         </div>
     </div>
-
 
 </section><!-- End Featured Services Section -->
 
@@ -106,7 +107,9 @@
                         showConfirmButton: false,
                         footer: '   '
                     });
-            });   
+            }); 
+            
         });
+
     </script>
 }

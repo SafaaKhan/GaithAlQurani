@@ -1861,3 +1861,7 @@ section {
 .swal2-html-container{
     font-weight: 800;
 }
+
+.form-control{
+    text-align: right;
+}

@@ -1,31 +1,18 @@
 ﻿@model GaithAlQuraniProject.Models.RegistrationForm
 
-@{
-    ViewData["Title"] = "RegistrationForm";
-}
 
-
-<section ></section>
-  <section id="appointment" class="appointment section-bg">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>التسجيل</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <form asp-action="SaveRegistratonForm" role="form" data-aos="fade-up" data-aos-delay="100">
+                <form asp-action="SaveRegistratonForm" role="form">
           <div class="row">
-            <div class="col-md-4 form-group">
-              <input type="text" asp-for="Name" class="form-control"  placeholder="اسمك" >
+            <div class="col-md-4 form-group mt-3 mt-md-0">
+              <input type="tel" class="form-control" asp-for="phoneNumber" placeholder="  (رقم جوال (واتساب " >
               <div class="validate"></div>
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
               <input  class="form-control" name="email" id="email" placeholder="الدولة" >
               <div class="validate"></div>
             </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="tel" class="form-control" asp-for="phoneNumber" placeholder="  (رقم جوال (واتساب " >
+            <div class="col-md-4 form-group">
+              <input type="text" asp-for="Name" class="form-control"  placeholder="اسمك" >
               <div class="validate"></div>
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
@@ -62,10 +49,10 @@
             <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
             <div class="validate"></div>
           </div>*@
-          <div class="mb-3">
-          <div class="text-center"><button type="submit">التسجيل</button></div>
+          <div class="modal-footer mt-3">
+          <div class="text-center"><button class="btn btn-primary" type="submit" style="float: left;">تسجيل</button></div>
         </form>
 
-      </div> 
 
-    </section><!-- End Appointment Section -->
+
+

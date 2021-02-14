@@ -32,10 +32,11 @@ namespace GaithAlQuraniProject.Controllers
             //IEnumerable<News> news = _db.News.ToList();
             ViewData["News"] = _db.News.ToList();
             ViewData["GaithGroups"] = _db.GaithGroups.ToList();
+            ViewData["RegistrationForm"] = _db.RegistrationForms;
             return View();
         }
 
-        [HttpGet]
+   [HttpGet]
         public IActionResult Create(int id)
         {
             RegistrationForm registrationForm = new RegistrationForm
@@ -43,9 +44,10 @@ namespace GaithAlQuraniProject.Controllers
                 GaithGroupId=id
             };
 
-            return View("RegistrationForm", registrationForm);
+            return PartialView("_Registration", registrationForm);
         }
 
+        [HttpPost]
         public IActionResult SaveRegistratonForm(RegistrationForm registrationForm)
         {
             RegistrationForm registrationFormTest = new RegistrationForm
@@ -58,7 +60,8 @@ namespace GaithAlQuraniProject.Controllers
             _db.SaveChanges();
             ViewData["News"] = _db.News.ToList();
             ViewData["GaithGroups"] = _db.GaithGroups.ToList();
-            return View("Index");//show a message it has been saved 
+            return RedirectToAction("Index");//show a message it has been saved 
+                                             // return View("Index");//show a message it has been saved 
         }
 
 

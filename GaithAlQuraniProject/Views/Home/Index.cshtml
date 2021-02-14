@@ -77,16 +77,32 @@
                         <div class="card-body">
                             <p class="card-text">@group.Information</p>
                             <button class="btn btn-secondary btn-sm read-more-btn " runat="server" style="float: right;">  اقرئي المزيد</button>
-                            <a class="btn btn-danger btn-sm test" style="float: right; margin-right:1rem" href="/home/create/@group.Id"  >انضمام</a>
+                            <a class="btn btn-danger btn-sm test" style="float: right; margin-right:1rem" data-toggle="modal" data-target="#loginModal"  data-assigned-id="@group.Id"  >انضمام</a>
                             <div class="read-more-title"  thevalue="@group.Title"></div>
                             <div class="read-more-content" thevalue="@group.MoreInformation"></div>
                         </div>
                     </div>
                 </div>
-
             }
         </div>
     </div>
+        <div class="modal" id="loginModal" role="dialog" >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <h5 class="modal-title">التسجيل</h5>
+          </div>
+            <div class="modal-body">
+                    <div id="partial"></div>
+            </div>
+        @*   <div class="modal-footer">
+            <button class="btn btn-primary" data-dismiss="modal">Login</button>
+          </div>*@ 
+        </div>
+      </div>
+    </div>
+
 
 </section><!-- End Featured Services Section -->
 
@@ -108,7 +124,13 @@
                         footer: '   '
                     });
             }); 
-            
+
+             $("body").on("click", ".test", function () {
+               var id= $(this).data('assigned-id');
+                var route = '@Url.Action("create", "home")?id=' + id;
+                $('#partial').load(route); 
+            }); 
+               
         });
 
     </script>

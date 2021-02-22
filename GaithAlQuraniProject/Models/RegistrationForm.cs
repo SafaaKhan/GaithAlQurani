@@ -12,15 +12,22 @@ namespace GaithAlQuraniProject.Models
         //add Annotation
         public int Id { get; set; }
 
-      
-        [Required]
+        [Required(ErrorMessage = "الرجاء إدخال الاسم")]
         public string Name { get; set; }
-        //country
-        //key
+
+        [Required(ErrorMessage = "الرجاء إدخال رقم الجوال")]
         public string phoneNumber { get; set; }
 
-        public GaithGroup GaithGroup { get; set; }
+        [Required(ErrorMessage = "الرجاء اختيار الرواية ")] //more details
+        public string Rewayah { get; set; }
 
+        [Required(ErrorMessage = "الرجاء اختيار الدولة ")] 
+        public string Country { get; set; }         
+
+        [Required(ErrorMessage = "الرجاء كتابة مقدار ما تم حفظه ")] //more details
+        public string MemorizedPart { get; set; }
+
+        public GaithGroup GaithGroup { get; set; }
 
         public int GaithGroupId { get; set; }
         // how many Juzu memorized

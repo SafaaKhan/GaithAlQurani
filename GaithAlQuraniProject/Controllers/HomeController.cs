@@ -39,6 +39,7 @@ namespace GaithAlQuraniProject.Controllers
    [HttpGet]
         public IActionResult Create(int id)
         {
+          
             RegistrationForm registrationForm = new RegistrationForm
             {
                 GaithGroupId=id
@@ -50,11 +51,28 @@ namespace GaithAlQuraniProject.Controllers
         [HttpPost]
         public IActionResult SaveRegistratonForm(RegistrationForm registrationForm)
         {
+           /* if (!ModelState.IsValid)
+            {
+                var registrationFormWrong = new RegistrationForm
+                {
+                    GaithGroupId = registrationForm.GaithGroupId,
+                    Name = registrationForm.Name,
+                    phoneNumber = registrationForm.phoneNumber,
+                    Country = registrationForm.Country,
+                    MemorizedPart = registrationForm.MemorizedPart,
+                    Rewayah = registrationForm.Rewayah
+                };
+               
+            }*/
+
             RegistrationForm registrationFormTest = new RegistrationForm
             {
                 GaithGroupId = registrationForm.GaithGroupId,
                 Name=registrationForm.Name,
-                phoneNumber=registrationForm.phoneNumber
+                phoneNumber=registrationForm.phoneNumber,
+                Country=registrationForm.Country,
+                MemorizedPart=registrationForm.MemorizedPart,
+                Rewayah=registrationForm.Rewayah
             };
             _db.RegistrationForms.Add(registrationFormTest);
             _db.SaveChanges();

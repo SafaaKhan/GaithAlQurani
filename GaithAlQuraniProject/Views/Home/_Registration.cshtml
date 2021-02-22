@@ -1,57 +1,74 @@
 ﻿@model GaithAlQuraniProject.Models.RegistrationForm
 
 
-                <form asp-action="SaveRegistratonForm" role="form">
+    <form asp-action="SaveRegistratonForm" role="form">
           <div class="row">
             <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="tel" class="form-control" asp-for="phoneNumber" placeholder="  (رقم جوال (واتساب " >
-              <div class="validate"></div>
+              <input type="tel" class="form-control" asp-for="phoneNumber" placeholder="  (رقم جوال (واتساب" >
+               @Html.ValidationMessageFor(m => m.phoneNumber)
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input  class="form-control" name="email" id="email" placeholder="الدولة" >
-              <div class="validate"></div>
+              <input  class="form-control" asp-for=Country placeholder="الدولة" >
+               @Html.ValidationMessageFor(m => m.Country)
             </div>
             <div class="col-md-4 form-group">
               <input type="text" asp-for="Name" class="form-control"  placeholder="اسمك" >
-              <div class="validate"></div>
+               @Html.ValidationMessageFor(m => m.Name)
             </div>
             <div class="col-md-4 form-group mt-3 mt-md-0">
               <input  class="form-control" asp-for="GaithGroupId" value="@Model.GaithGroupId" hidden>
-              <div class="validate"></div>
             </div>
           </div>
           <div class="row">
-           @*   <div class="col-md-4 form-group mt-3">
-              <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>*@
-            <div class="col-md-4 form-group mt-3">
-              <select name="department" id="department" class="form-select"> @* from db *@
-                <option value="">الرواية</option>
-                <option value="Department 1">حفص</option>
-                <option value="Department 2">ورش</option>
-                <option value="Department 3">قارون</option>
+              <div class="form-group mt-3 col-md-8">
+                <textarea asp-for=MemorizedPart class="form-control" rows="5" placeholder="مقدار الحفظ من القرآن"></textarea>
+                 @Html.ValidationMessageFor(m => m.MemorizedPart)
+             </div>
+             <div class="col-md-4 form-group mt-3">
+              <select  class="form-select" asp-for="Rewayah"  > @* from db *@
+              <option selected>الرواية</option> @* check its validation *@
+                <option value="حفص">حفص عن عاصم</option>
+                <option value="ورش">ورش عن نافع</option>
+                <option value="قالون">قالون عن نافع</option>
+                <option value="شعبة">شعبة عن عاصم</option>
+                <option value="قنبل">قنبل عن ابن كثير</option>
+                <option value="البزي">البزي عن ابن كثير</option>
+                <option value="الدوري">الدوري عن ابو عمرو</option>
+                <option value="السوسي">السوسي عن ابو عمرو</option>
+                <option value="هشام">هشام عن ابن عامر</option>
+                <option value="ابن ذكوان">ابن ذكوان عن ابن عامر</option>
+                <option value="خلف">خلف عن حمزة</option>
+                <option value="خلاد">خلاد عن حمزة</option>
+                <option value="ابو الحارث ">ابو الحارث عن الكسائي</option>
+                <option value="الدوري عن الكسائي">الدوري عن الكسائي</option>
               </select>
-              <div class="validate"></div>
-            </div>
-          @*   <div class="col-md-4 form-group mt-3">
-              <select name="doctor" id="doctor" class="form-select">
-                <option value="">Select Doctor</option>
-                <option value="Doctor 1">Doctor 1</option>
-                <option value="Doctor 2">Doctor 2</option>
-                <option value="Doctor 3">Doctor 3</option>
-              </select>
-              <div class="validate"></div>
-            </div>*@
+              @Html.ValidationMessageFor(m => m.Rewayah)
+             </div>
           </div>
-          @*  
-          <div class="form-group mt-3">
-            <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
-            <div class="validate"></div>
-          </div>*@
-          <div class="modal-footer mt-3">
-          <div class="text-center"><button class="btn btn-primary" type="submit" style="float: left;">تسجيل</button></div>
+
+          <div class="modal-footer mt-3 justify-content-between">
+          <div class="text-center"><button class="btn btn-danger "  type="submit" >تسجيل</button></div>
         </form>
+
+
+@* 
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+
+             $("body").on("click", ".test", function () {
+               var id= document.getElementById('Name').value;
+                if(id==""){
+                    document.getElementById('test2').innerHTML="TESSSSSSST";
+                }
+            }); 
+               
+        });
+
+    </script>
+} *@
+
 
 
 

@@ -33,6 +33,7 @@ namespace GaithAlQuraniProject.Controllers
             ViewData["News"] = _db.News.ToList();
             ViewData["GaithGroups"] = _db.GaithGroups.ToList();
             ViewData["RegistrationForm"] = _db.RegistrationForms;
+            ViewData["Hadeeth"] = _db.hadeethCarousels;
             return View();
         }
 
@@ -78,6 +79,7 @@ namespace GaithAlQuraniProject.Controllers
             _db.SaveChanges();
             ViewData["News"] = _db.News.ToList();
             ViewData["GaithGroups"] = _db.GaithGroups.ToList();
+            ViewData["Hadeeth"] = _db.hadeethCarousels.ToList();
             return RedirectToAction("Index");//show a message it has been saved 
                                              // return View("Index");//show a message it has been saved 
         }
@@ -98,6 +100,8 @@ namespace GaithAlQuraniProject.Controllers
         {
             return View();
         }
+
+       
     }
 }
 

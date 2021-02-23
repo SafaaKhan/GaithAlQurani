@@ -18,12 +18,13 @@ namespace GaithAlQuraniProject.Models
         [Required]
         public string Subject { get; set; }
 
-        //either must be required or put any default image in the uploadfile or leave it as it is
+        //either must be required or put any default image in the uploadfile or leave it as it is or write custom vaidation
         public string Image { get; set; }
 
-        //if button status true must those two also be true
+        [ButtonMustBeShown]
         public string ButtonLink { get; set; }
 
+        [ButtonMustBeShown]
         public string ButtonContent { get; set; }
 
         [Required]

@@ -1,0 +1,88 @@
+﻿@model GaithAlQuraniProject.Models.ContactUs
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section></section>
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>التواصل</h2>
+          <p> يمكنك إرسال استفسارك من هنا</p>
+        </div>
+
+      </div>
+
+      <div class="container">
+
+        <div class="row mt-5">
+
+          <div class="col-lg-8 " style="text-align: right;
+           font-family: 'Dubai', sans-serif;
+           font-size: 16px;"> @*fix and make animation(fade)*@
+            <form asp-action="Create" >
+              <div class="row">
+                  <div class="col form-group">
+                <label asp-for="Name" class="control-label" ></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+             <div class="col form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+              </div>
+             <div class="form-group mt-3">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <label asp-for="Message" class="control-label"></label>
+                <textarea asp-for="Message" rows="5" class="form-control"></textarea>
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="إرسال" class="btn"
+                style=" background: #2eced9;
+                border: 0;
+                padding: 10px 30px;
+                color: #fff;
+                transition: 0.4s;
+                border-radius: 4px;
+                margin-top: 2rem;
+                text-align: center;
+                font-family: 'Dubai', sans-serif;"/> @*change*@
+            </div>
+            </form>
+          </div>
+         <div class="col-lg-4 ">
+            <div class="row">
+              <div class="col-md-6 ">
+                <div class="info-box mt-4 ">
+                  <i class="bx bx-envelope"></i>
+                  <h3>راسلنا</h3>
+                  <p>info@example.com<br>contact@example.com</p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="info-box mt-4">
+                  <i class="bx bx-phone-call"></i>
+                  <h3>رقم الواتساب</h3>
+                  <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                </div>
+              </div>
+       </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Contact Section -->
+

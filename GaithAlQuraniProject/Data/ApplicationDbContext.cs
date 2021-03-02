@@ -18,5 +18,8 @@ namespace GaithAlQuraniProject.Data
         public DbSet<GaithGroup> GaithGroups { set; get; }
         public DbSet<RegistrationForm> RegistrationForms { set; get; }
         public DbSet<HadeethCarousel> hadeethCarousels { set; get; }
+        public DbSet<Admins> Admins { set; get; }
+        public DbSet<ContactUs> ContactUs { set; get; }
+        public DbSet<GaithAlQuraniProject.Models.NewRegisteredStudent> NewRegisteredStudent { get; set; }
     }
 }

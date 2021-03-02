@@ -10,6 +10,7 @@
     IEnumerable<GaithAlQuraniProject.Models.HadeethCarousel> HadeethCarousels = ViewData["Hadeeth"] as IEnumerable<GaithAlQuraniProject.Models.HadeethCarousel>;
 }
 
+
 <!-- ======= Hero Section ======= -->
 <section  id="hero" >
         @if (News.Count() == 0)
@@ -22,7 +23,6 @@
                         <a href="#about" class="btn-get-started scrollto">اقرأ المزيد</a>
                     </div>
                 </div>
-
         }
         else
         {
@@ -36,7 +36,7 @@
                         <div class="carousel-item @(first?Html.Raw("active"):Html.Raw(""))" style=" background: url(/Images/@item.Image) no-repeat center center/cover">
                             <div class="container"> @*change title span*@
                                 @*<h2>    مرحبا في <span style="color: #2eced9">@item.Title</span> </h2>*@
-                                <h2 style="color: #2eced9">   @item.Title </h2>
+                                <h2 @*style="color: #2eced9"*@ >   @item.Title </h2>
                                 <p >@item.Subject</p>
                                 @if(item.ButtonStatus=="نعم"){
                                        @* change href(may be you need to add file with the new hose) http://... to dynamic*@ 
@@ -62,9 +62,9 @@
         }
     
 </section><!-- End Hero -->
+
 @*<partial name="~/Views/Home/GaithGroups.cshtml" />*@
 
-<div id="placeHolderHere"></div>
 
 <!-- ======= Featured Services Section ======= -->
 <section id="featured-services" class="featured-services">
@@ -109,8 +109,6 @@
         </div>
       </div>
     </div>
-
-
 </section><!-- End Featured Services Section -->
 
 
@@ -137,8 +135,7 @@
             fi = false;
 
         }
-
-            
+     
           <!-- CONTROLS -->
           <a href="#slider4" class="carousel-control-prev " data-slide="prev"   >
             <span  class="carousel-control-prev-icon"></span>

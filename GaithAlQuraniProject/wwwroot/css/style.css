@@ -14,7 +14,7 @@
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Roboto", sans-serif;
+    font-family: "Dubai", sans-serif;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -205,7 +205,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: 0.3s;
     /*font-size: 13px;*/
     font-size: 1rem;
-    font-family: "Roboto", sans-serif;
+    font-family: "Dubai", sans-serif;
     text-transform: uppercase;
     font-weight: 500;
     text-decoration: none;
@@ -253,9 +253,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu .drop-down > a:after {
-  content: "\ea99";
-  font-family: IcoFont;
-  padding-left: 5px;
+    content: "\ea99";
+    font-family: "Dubai", sans-serif;
+    padding-left: 5px;
 }
 
 .nav-menu .drop-down .drop-down ul {
@@ -273,12 +273,12 @@ h1, h2, h3, h4, h5, h6 {
   padding-right: 35px;
 }
 
-.nav-menu .drop-down .drop-down > a:after {
-  content: "\eaa0";
-  font-family: IcoFont;
-  position: absolute;
-  right: 15px;
-}
+    .nav-menu .drop-down .drop-down > a:after {
+        content: "\eaa0";
+        font-family: "Dubai", sans-serif;
+        position: absolute;
+        right: 15px;
+    }
 
 @media (max-width: 1366px) {
   .nav-menu .drop-down .drop-down ul {
@@ -373,13 +373,13 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
 }
 
-.mobile-nav .drop-down > a:after {
-  content: "\ea99";
-  font-family: IcoFont;
-  padding-left: 10px;
-  position: absolute;
-  right: 15px;
-}
+    .mobile-nav .drop-down > a:after {
+        content: "\ea99";
+        font-family: "Dubai", sans-serif;
+        padding-left: 10px;
+        position: absolute;
+        right: 15px;
+    }
 
 .mobile-nav .active.drop-down > a:after {
   content: "\eaa1";
@@ -555,18 +555,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .btn-get-started {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 14px 32px;
-  border-radius: 4px;
-  transition: 0.5s;
-  line-height: 1;
-  color: #fff;
-  background: #2eced9;
-  text-decoration: none;
+    font-family: "Dubai", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 4px;
+    transition: 0.5s;
+    line-height: 1;
+    color: #fff;
+    background: #2eced9;
+    text-decoration: none;
 }
 
 #hero .btn-get-started:hover {
@@ -783,19 +783,19 @@ section {
   font-weight: 700;
 }
 
-.cta .cta-btn {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 10px 35px;
-  border-radius: 25px;
-  transition: 0.5s;
-  margin-top: 10px;
-  border: 2px solid #fff;
-  color: #fff;
-}
+    .cta .cta-btn {
+        font-family: "Dubai", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 1px;
+        display: inline-block;
+        padding: 10px 35px;
+        border-radius: 25px;
+        transition: 0.5s;
+        margin-top: 10px;
+        border: 2px solid #fff;
+        color: #fff;
+    }
 
 .cta .cta-btn:hover {
   background: #fff;
@@ -865,15 +865,15 @@ section {
   font-size: 14px;
 }
 
-.counts .count-box a {
-  font-weight: 600;
-  display: block;
-  margin-top: 20px;
-  color: #7b7b7b;
-  font-size: 15px;
-  font-family: "Poppins", sans-serif;
-  transition: ease-in-out 0.3s;
-}
+    .counts .count-box a {
+        font-weight: 600;
+        display: block;
+        margin-top: 20px;
+        color: #7b7b7b;
+        font-size: 15px;
+        font-family: "Dubai", sans-serif;
+        transition: ease-in-out 0.3s;
+    }
 
 .counts .count-box a:hover {
   color: #2eced9;
@@ -1432,17 +1432,17 @@ section {
 }
 
 .pricing .btn-buy {
-  background: #2eced9;
-  display: inline-block;
-  padding: 8px 35px 10px 35px;
-  border-radius: 4px;
-  color: #fff;
-  transition: none;
-  font-size: 14px;
-  font-weight: 400;
-  font-family: "Roboto", sans-serif;
-  font-weight: 600;
-  transition: 0.3s;
+    background: #2eced9;
+    display: inline-block;
+    padding: 8px 35px 10px 35px;
+    border-radius: 4px;
+    color: #fff;
+    transition: none;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Dubai", sans-serif;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
 .pricing .btn-buy:hover {
@@ -1552,89 +1552,47 @@ section {
   margin-bottom: 0;
 }
 
-.contact .php-email-form {
+.contact  {
   box-shadow: 0 0 20px rgba(214, 215, 216, 0.5);
   padding: 30px;
 }
 
-.contact .php-email-form .validate {
-  display: none;
-  color: red;
-  margin: 0 0 15px 0;
-  font-weight: 400;
-  font-size: 13px;
-}
+/*.col-12 .contact {
+    text-align: center;
+}*/
 
-.contact .php-email-form .error-message {
-  display: none;
-  color: #fff;
-  background: #ed3c0d;
-  text-align: left;
-  padding: 15px;
-  font-weight: 600;
-}
 
-.contact .php-email-form .error-message br + br {
-  margin-top: 25px;
-}
 
-.contact .php-email-form .sent-message {
-  display: none;
-  color: #fff;
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.contact .php-email-form .loading {
-  display: none;
-  background: #fff;
-  text-align: center;
-  padding: 15px;
-}
-
-.contact .php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
-  border-top-color: #eee;
-  -webkit-animation: animate-loading 1s linear infinite;
-  animation: animate-loading 1s linear infinite;
-}
-
-.contact .php-email-form input, .contact .php-email-form textarea {
+.contact  input, .contact  textarea {
   border-radius: 4px;
   box-shadow: none;
   font-size: 14px;
 }
 
-.contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
+.contact  input:focus, .contact textarea:focus {
   border-color: #2eced9;
 }
 
-.contact .php-email-form input {
+.contact  input {
   padding: 10px 15px;
 }
 
-.contact .php-email-form textarea {
+.contact  textarea {
   padding: 12px 15px;
 }
 
-.contact .php-email-form button[type="submit"] {
-  background: #2eced9;
-  border: 0;
-  padding: 10px 30px;
-  color: #fff;
-  transition: 0.4s;
-  border-radius: 4px;
-}
+  .btn-submit {
+        background: #2eced9;
+        border: 0;
+        padding: 10px 30px;
+        color: #fff;
+        transition: 0.4s;
+        border-radius: 4px;
+        margin-top: 2rem;
+        text-align: center;
+    }
 
-.contact .php-email-form button[type="submit"]:hover {
+.contact  button[type="submit"]:hover {
   background: #38e6f2;
 }
 
@@ -1683,12 +1641,12 @@ section {
   font-weight: 700;
 }
 
-#footer .footer-top .footer-info p {
-  font-size: 14px;
-  line-height: 24px;
-  margin-bottom: 0;
-  font-family: "Roboto", sans-serif;
-}
+    #footer .footer-top .footer-info p {
+        font-size: 14px;
+        line-height: 24px;
+        margin-bottom: 0;
+        font-family: "Dubai", sans-serif;
+    }
 
 #footer .footer-top .social-links a {
   font-size: 18px;
@@ -1855,6 +1813,13 @@ section {
 
 }
 
+
+/*.contact .col-lg-8,
+.contact .col {
+    text-align: right;
+    
+}*/
+
 #slider4 .carousel-control-prev-icon,
 #slider4 .carousel-control-next-icon {
     height: 100px;
@@ -1879,3 +1844,139 @@ section {
     .container a{
         text-decoration: none;
     }
+
+
+.col-12:nth-child(even) .card {
+    background-color: #6c757d;
+    color: white;
+    font-family: "Dubai", sans-serif;
+}
+
+/*#2eced9;
+  #ecf8f9;*/
+.col-12:nth-child(odd) .card {
+    /*background-color: #D6E8EE;*/
+    background-color: #2eced9;
+    /*color: #6c757d;*/
+    color: white;
+    font-family: "Dubai", sans-serif;
+}
+
+            /*change hover color*/
+            .item {
+                position: relative;
+                overflow: hidden;
+            }
+
+                /*100c08*/
+                /*#F5F5F5*/
+                .item:nth-child(odd)::after {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    background: #C0F0F3;
+                    opacity: 0.9;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    transform: scale(2) translateX(-75%) translateY(-75%) rotate(-28deg);
+                    transition: transform 3s cubic-bezier(0.2, 1, 0.4, 1);
+                }
+
+                .item:nth-child(even)::after {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    background: #CFD2D5;
+                    opacity: 0.9;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    transform: scale(2) translateX(-75%) translateY(-75%) rotate(-28deg);
+                    transition: transform 3s cubic-bezier(0.2, 1, 0.4, 1);
+                }
+
+    .item:hover:after {
+        transform: scale(2) translateX(0) translateY(0) rotate(-28deg);
+    }
+
+    .item:hover .card {
+        transform: scale(1.2);
+    }
+
+                .item:nth-child(even):hover .item-text {
+                    opacity: 1;
+                    transform: translateY(1);
+                    color: #333;
+                }
+                .item:nth-child(odd):hover .item-text {
+                    opacity: 1;
+                    transform: translateY(1);
+                    color: #6c757d;
+                    
+                }
+
+.card .card-test {
+    transform: translateY(0);
+    transition: transform 750ms cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.card .card-test::before {
+    content: '';
+    padding-top: 50%;
+    overflow: hidden;
+}
+
+.card .card-test .card-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+}
+
+.item-text { /**/
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    text-align: center;
+    z-index: 1;
+    transform: translateY(-20%);
+    transition: opacity 500ms cubic-bezier(0.2, 1, 0.3, 1), transform 500ms cubic-bezier(0.2, 1, 0.3, 1);
+    transition-delay: 300ms;
+}
+
+
+
+.item-text-wrap {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.item-text-title {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 1rem 1rem;
+    margin: 10px 0 0 0;
+}
+
+.item-text-category {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    opacity: 0.7;
+    margin: 0;
+}
+
+
+
+
+
+
+ 

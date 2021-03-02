@@ -21,7 +21,7 @@ namespace GaithAlQuraniProject.Models
         [Required(ErrorMessage = "الرجاء اختيار الرواية ")] //more details
         public string Rewayah { get; set; }
 
-        [Required(ErrorMessage = "الرجاء اختيار الدولة ")] 
+        [Required(ErrorMessage = "الرجاء إدخال الدولة ")] 
         public string Country { get; set; }         
 
         [Required(ErrorMessage = "الرجاء كتابة مقدار ما تم حفظه ")] //more details

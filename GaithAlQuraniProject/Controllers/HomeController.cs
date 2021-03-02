@@ -98,6 +98,7 @@ namespace GaithAlQuraniProject.Controllers
 
         public IActionResult About()
         {
+            ViewData["Admins"] = _db.Admins.ToList();
             return View();
         }
 

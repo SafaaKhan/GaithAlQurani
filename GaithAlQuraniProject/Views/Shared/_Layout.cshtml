@@ -12,7 +12,6 @@
 
     <!-- Favicons -->
     <link href="~/img/favicon.png" rel="icon"> <!--change -->
-    <link href="~/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -33,7 +32,6 @@
 </head>
 
 <body>
-
     <!-- ======= Top Bar ======= -->
     <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
         <div class="container d-flex align-items-center justify-content-between">
@@ -59,8 +57,6 @@
     <header id="header" class="fixed-top">
         <div class="container d-flex align-items-center ">
 
-
-
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
                     <!--  <li><a href="#departments">Departments</a></li>-->
@@ -81,11 +77,11 @@
                         <li><a href="#">Drop Down 4</a></li>
                       </ul>
                     </li> -->
-                    <li><a href="#contact">التواصل</a></li>
-                    <li><a href="#about">من نحن</a></li>
-                    <li><a href="#services">الخدمات</a></li>
-                    <li><a href="#doctors">المشرفات</a></li>
-                    <li class="active"><a asp-controller="Home" asp-action="Index">الرئيسية</a></li> <!--Reverse the menu-->
+                    <li><a id="#Home" asp-controller="ContactUs" asp-action="Create">التواصل</a></li>
+                    <li><a href="#">الخدمات</a></li> @* fix the active tab *@
+                    <li><a href="#icon-boxes">المشرفات</a></li>
+                    <li><a id="#about" asp-controller="Home" asp-action="About">من نحن</a></li>
+                    <li class="active"><a id="#Home" asp-controller="Home" asp-action="Index">الرئيسية</a></li> <!--Reverse the menu-->
                 </ul>
             </nav><!-- .nav-menu -->
             <!-- <a href="index.html" class="logo " style="margin-left: auto !important"><img src="~/img/logo.png" alt=""></a>-->
@@ -97,6 +93,7 @@
         </div>
        
     </header><!-- End Header -->
+    <!--use the partial to add the showcase here and put the script only in the home view-->
 <main role="main" class="pb-1">
     @RenderBody()
 </main>

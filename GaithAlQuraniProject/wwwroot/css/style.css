@@ -254,7 +254,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-menu .drop-down > a:after {
     content: "\ea99";
-    font-family: "Dubai", sans-serif;
+    font-family: IcoFont;
     padding-left: 5px;
 }
 
@@ -1813,13 +1813,15 @@ section {
 
 }
 
+select .form-select {
+    text-align: right;
+}
 
 /*.contact .col-lg-8,
 .contact .col {
     text-align: right;
     
 }*/
-
 #slider4 .carousel-control-prev-icon,
 #slider4 .carousel-control-next-icon {
     height: 100px;

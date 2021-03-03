@@ -1,18 +1,16 @@
 ﻿@model GaithAlQuraniProject.Models.NewRegisteredStudent
 
 @{
-    ViewData["Title"] = "تسجيل";
+    ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section></section>
 
-@*<h4>NewRegisteredStudent</h4>
-<hr />
-<div class="row">
+@*<div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
@@ -34,11 +32,6 @@
                 <span asp-validation-for="Country" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MemorizedPart" class="control-label"></label>
-                <input asp-for="MemorizedPart" class="form-control" />
-                <span asp-validation-for="MemorizedPart" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="CallingProgram" class="control-label"></label>
                 <input asp-for="CallingProgram" class="form-control" />
                 <span asp-validation-for="CallingProgram" class="text-danger"></span>
@@ -49,26 +42,25 @@
                 <span asp-validation-for="SuitableTime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>*@
 
-    <!-- ======= Appointment Section ======= -->
+@*<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+<section></section>
     <section id="appointment" class="appointment section-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>التسجيل في البرنامج</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>تحديث البيانات</h2>
         </div>
 
-        <form asp-action="Create" method="post" role="form"  data-aos="fade-up" data-aos-delay="100">
+        <form asp-action="StudentEdit" method="post" role="form"  data-aos="fade-up" data-aos-delay="100">
+          <input type="hidden" asp-for="Id" />
           <div class="row">
              <div class="col-md-3 form-group mt-3 mt-md-0">
               <input type="text"  class="form-control"  asp-for="Country" placeholder="الدولة">
@@ -80,7 +72,7 @@
             <div class="col-md-3 form-group">
               <input type="text"  class="form-control"  asp-for="Password" placeholder="كلمة المرور">
               <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
+            </div> @* ??/ delete or leave it *@
             <div class="col-md-3 form-group">
               <input type="text"  class="form-control"  asp-for="Name" placeholder="الاسم">
               <div class="validate"></div>
@@ -120,7 +112,7 @@
             <div class="col-md-4 form-group mt-3">
               <input type="text"  class="form-control"  asp-for="SuitableTime" placeholder="الوقت المناسب">
             </div>
-          <div class="text-center"><input type="submit" value="تسجيل" class="btn"
+          <div class="text-center"><input type="submit" value="تحديث" class="btn"
                 style=" background: #2eced9;
                 border: 0;
                 padding: 10px 30px;
@@ -133,4 +125,4 @@
         </form>
 
       </div>
-    </section><!-- End Appointment Section -->
+    </section>

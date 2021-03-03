@@ -54,7 +54,7 @@ namespace GaithAlQuraniProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,phoneNumber,Rewayah,Country,MemorizedPart,CallingProgram,SuitableTime")] NewRegisteredStudent newRegisteredStudent)
+        public async Task<IActionResult> Create(NewRegisteredStudent newRegisteredStudent)
         {
             if (ModelState.IsValid)
             {
@@ -65,6 +65,7 @@ namespace GaithAlQuraniProject.Controllers
             return View(newRegisteredStudent);
         }
 
+     
         // GET: NewRegisteredStudents/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -86,7 +87,7 @@ namespace GaithAlQuraniProject.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,phoneNumber,Rewayah,Country,MemorizedPart,CallingProgram,SuitableTime")] NewRegisteredStudent newRegisteredStudent)
+        public async Task<IActionResult> Edit(int id, NewRegisteredStudent newRegisteredStudent)
         {
             if (id != newRegisteredStudent.Id)
             {
@@ -148,6 +149,61 @@ namespace GaithAlQuraniProject.Controllers
         private bool NewRegisteredStudentExists(int id)
         {
             return _context.NewRegisteredStudent.Any(e => e.Id == id);
+        }
+
+
+        public IActionResult StudentLogin()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult StudentEdit(StudentLogin studentLogin)
+        {
+            //if (id == null) instead Model.is
+            //{
+            //    return NotFound();
+            //}
+            //while registration make sure the name does not exist
+
+            var result =   _context.NewRegisteredStudent.Where(x=>x.Name==studentLogin.Name && x.Password == studentLogin.Password).Single();
+            if(result != null)
+            {
+                return View(result);
+            }
+            return RedirectToAction(nameof(StudentLogin));//fix
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> StudentEdit(int id, NewRegisteredStudent newRegisteredStudent)
+        {
+            if (id != newRegisteredStudent.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(newRegisteredStudent);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!NewRegisteredStudentExists(newRegisteredStudent.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(newRegisteredStudent);
         }
     }
 }

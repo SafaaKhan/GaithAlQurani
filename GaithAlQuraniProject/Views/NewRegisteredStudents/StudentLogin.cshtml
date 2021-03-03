@@ -1,0 +1,46 @@
+﻿@model GaithAlQuraniProject.Models.StudentLogin
+@{
+    ViewData["Title"] = "StudentLogin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section></section>
+
+    <section id="appointment" class="appointment section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>دخول الطالبة</h2>
+     
+        <form asp-action="StudentEdit" method="post" role="form"  data-aos="fade-up" data-aos-delay="100">
+           <div class="row">
+              <center>
+                <div class="col-md-4 form-group ">
+                  <input type="text"  class="form-control"  asp-for="Name" placeholder="الاسم">
+                  <div class="validate"></div>
+                </div>
+            </center>
+          </div>
+          <div class="row">
+              <center>
+            <div class="col-md-4 form-group mt-3">
+              <input type="text"  class="form-control"  asp-for="Password" placeholder="كلمة المرور">
+              <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            </center>
+          </div> 
+
+          <div class="text-center"><input type="submit" value="دخول" class="btn"
+                style=" background: #2eced9;
+                border: 0;
+                padding: 10px 30px;
+                color: #fff;
+                transition: 0.4s;
+                border-radius: 4px;
+                margin-top: 2rem;
+                text-align: center;
+                font-family: 'Dubai', sans-serif;" />
+        </form>
+
+      </div>
+    </section>

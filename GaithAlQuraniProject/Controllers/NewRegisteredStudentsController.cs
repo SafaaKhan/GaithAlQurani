@@ -46,6 +46,7 @@ namespace GaithAlQuraniProject.Controllers
         // GET: NewRegisteredStudents/Create
         public IActionResult Create()
         {
+            
             return View();
         }
 
@@ -60,7 +61,7 @@ namespace GaithAlQuraniProject.Controllers
             {
                 _context.Add(newRegisteredStudent);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(StudentLogin));//after seccuss registration pop up message
             }
             return View(newRegisteredStudent);
         }
@@ -157,23 +158,51 @@ namespace GaithAlQuraniProject.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult StudentEdit(StudentLogin studentLogin)
+        
+        public IActionResult StudentEdit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var newRegisteredStudent =  _context.NewRegisteredStudent.Find(id);
+            if (newRegisteredStudent == null)
+            {
+                return NotFound();
+            }
+            return View(newRegisteredStudent);
+        }
+
+        
+        public IActionResult StudentIndex(StudentLogin studentLogin)
         {
             //if (id == null) instead Model.is
             //{
             //    return NotFound();
             //}
             //while registration make sure the name does not exist
-
-            var result =   _context.NewRegisteredStudent.Where(x=>x.Name==studentLogin.Name && x.Password == studentLogin.Password).Single();
-            if(result != null)
+            var result = _context.NewRegisteredStudent.Where(x => x.Name == studentLogin.Name && x.Password == studentLogin.Password).Single();
+            if (result != null)
             {
-                return View(result);
+                return View("StudentIndex", result);
             }
             return RedirectToAction(nameof(StudentLogin));//fix
+           // return View(await _context.NewRegisteredStudent.ToListAsync());
         }
 
+        [HttpPost]
+        public IActionResult StudentIndex_(NewRegisteredStudent newRegisteredStudent)
+        {
+            //if (id == null) instead Model.is
+            //{
+            //    return NotFound();
+            //}
+            //while registration make sure the name does not exist
+            
+            return RedirectToAction("StudentIndex", newRegisteredStudent);//fix
+                                                          // return View(await _context.NewRegisteredStudent.ToListAsync());
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> StudentEdit(int id, NewRegisteredStudent newRegisteredStudent)
@@ -183,14 +212,14 @@ namespace GaithAlQuraniProject.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+           if (ModelState.IsValid)
             {
                 try
                 {
                     _context.Update(newRegisteredStudent);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
+               catch (DbUpdateConcurrencyException)
                 {
                     if (!NewRegisteredStudentExists(newRegisteredStudent.Id))
                     {
@@ -201,9 +230,15 @@ namespace GaithAlQuraniProject.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("StudentIndex_", newRegisteredStudent);
             }
             return View(newRegisteredStudent);
         }
+
+        public async Task<IActionResult> ChooseFriend()
+        {
+            return View(await _context.NewRegisteredStudent.ToListAsync());
+        }
+
     }
 }

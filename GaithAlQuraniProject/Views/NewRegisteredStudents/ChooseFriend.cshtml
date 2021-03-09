@@ -1,0 +1,57 @@
+﻿@model IEnumerable< GaithAlQuraniProject.Models.NewRegisteredStudent>
+@{
+    ViewData["Title"] = "ChooseFriend";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section></section>
+
+ <section id="icon-boxes"  class="appointment section-bg p-5">
+          <div class="section-title">
+             <h2>الصديقات</h2>
+        </div>
+    <div class="container" data-aos="fade-up">
+         <div class="row   justify-content-end">
+            @foreach (var friend in Model)
+            {   
+           <div class=" col-md-6  col-lg-3  align-items-stretch mb-5 mb-lg-2"> @* change the division to be responsive *@
+            <div >
+                     <div class="card card-test_ text-center" data-aos="fade-up" data-aos-delay="100" style="width:100%; ">
+                        <div class="card-body" >
+                          <h5 >@friend.Name</h5>
+                         <p>@friend.Rewayah</p> 
+                         <p>@friend.SuitableTime</p>
+                         <p>@friend.CallingProgram</p>
+                         <hr />
+                           <a ><i data-toggle="tooltip" data-placement="top" title="المحادثة مع الصديقة" class="far fa-comment-dots fa-2x" style="float: left; margin-left:1rem;
+                      "></i></a> @* hover and tips *@
+                       </div>
+                    </div>
+            </div>
+          </div>
+            }
+        </div>
+           <div class="text-center"><a asp-action="StudentIndex_" asp-controller="NewRegisteredStudents" class="btn btn-secondary"
+                style=" 
+                border: 0;
+                padding: 7px 25px;
+                transition: 0.4s;
+                border-radius: 4px;
+                margin-top: 2rem;
+                text-align: center;
+                font-family: 'Dubai', sans-serif;">الرجوع إلى السابق</a>
+      </div>
+    </div>
+  </section>
+
+@section Scripts {
+    <script>
+
+        $(document).ready(function () {
+
+           $('[data-toggle="tooltip"]').tooltip();
+      
+        });
+
+    </script>
+}

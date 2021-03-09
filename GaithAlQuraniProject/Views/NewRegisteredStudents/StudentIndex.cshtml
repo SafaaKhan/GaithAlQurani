@@ -1,0 +1,50 @@
+﻿@model GaithAlQuraniProject.Models.NewRegisteredStudent
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section></section>
+
+<section id="featured-services" class="featured-services appointment section-bg">
+    <div class="container" data-aos="fade-up">
+
+        @*if statemen*@
+        <div class="section-title">
+            <h2>بياناتي</h2>
+        </div>
+        <div class="row justify-content-end">
+                <div class=" col-md-12  col-lg-6 d-flex align-items-stretch mb-5 mb-lg-2">
+                    <div class="card card-myData" data-aos="fade-up" data-aos-delay="100" style="width:100%">
+                        <div class="card-header" style="background: #2eced9; color:#fff">
+                            <h6>@Model.Name</h6> 
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title">@Html.DisplayNameFor(model => model.phoneNumber)</h6>
+                            <p class="card-text">@Model.phoneNumber</p>
+                            <h6 class="card-title">@Html.DisplayNameFor(model => model.CallingProgram)</h6>
+                            <p class="card-text">@Model.CallingProgram</p>
+                            <h6 class="card-title">@Html.DisplayNameFor(model => model.Country)</h6>
+                            <p class="card-text">@Model.Country</p>
+                            <h6 class="card-title">@Html.DisplayNameFor(model => model.Rewayah)</h6>
+                            <p class="card-text">@Model.Rewayah</p>
+                            <h6 class="card-title">@Html.DisplayNameFor(model => model.SuitableTime)</h6>
+                            <p class="card-text">@Model.SuitableTime</p>  
+                            <h6 class="card-title">@Html.DisplayNameFor(model => model.ExamTeacher)</h6>
+                                <p class="card-text">@Model.ExamTeacher</p>  
+                            <h6 class="card-title">@Html.DisplayNameFor(model => model.CallingProgramExam)</h6>
+                                <p class="card-text">@Model.CallingProgramExam</p>  
+                            <h6 class="card-title">@Html.DisplayNameFor(model => model.SuitableTimeExam)</h6>
+                                <p class="card-text">@Model.SuitableTimeExam</p>  
+                            <h6 class="card-title">@Html.DisplayNameFor(model => model.TeacherNotes)</h6>
+                                <p class="card-text">@Model.TeacherNotes</p> 
+                            <h6 class="card-title">@Html.DisplayNameFor(model => model.GaithGroup)</h6>
+                                <p class="card-text">@Model.GaithGroup</p>
+                            <a class="btn btn-secondary"  style="float: left;" asp-action="StudentEdit" asp-route-id="@Model.Id">تحديث</a>
+                            <a class="btn btn-danger" style="float: left; margin-left:1rem" asp-action="ChooseFriend" >اختيار صديقة</a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>

@@ -7,60 +7,28 @@
 
 <section></section>
 
-@*<h4>NewRegisteredStudent</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="phoneNumber" class="control-label"></label>
-                <input asp-for="phoneNumber" class="form-control" />
-                <span asp-validation-for="phoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Rewayah" class="control-label"></label>
-                <input asp-for="Rewayah" class="form-control" />
-                <span asp-validation-for="Rewayah" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Country" class="control-label"></label>
-                <input asp-for="Country" class="form-control" />
-                <span asp-validation-for="Country" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MemorizedPart" class="control-label"></label>
-                <input asp-for="MemorizedPart" class="form-control" />
-                <span asp-validation-for="MemorizedPart" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CallingProgram" class="control-label"></label>
-                <input asp-for="CallingProgram" class="form-control" />
-                <span asp-validation-for="CallingProgram" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SuitableTime" class="control-label"></label>
-                <input asp-for="SuitableTime" class="form-control" />
-                <span asp-validation-for="SuitableTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>*@
 
     <!-- ======= Appointment Section ======= -->
     <section id="appointment" class="appointment section-bg">
+              <div class="mb-2">
+           <button class="btn btn-secondary  read-more-btn btn-sm " runat="server" style="  position: fixed; width:50px; height: 50px;"><i class="far fa-question-circle fa-2x"></i></button>
+            <div class="read-more-title"  thevalue=" ما هو برنامج غيث القرآني "></div>
+            <div class="read-more-content" thevalue="هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم الموقع.
+ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً،دور مولد النص العربى أن يوفر على المصمم عناء البحث عن نص بديل لا علاقة له بالموضوع الذى يتحدث عنه التصميم فيظهر بشكل لا يليق.
+هذا النص يمكن أن يتم تركيبه على أي تصميم دون مشكلة فلن يبدو وكأنه نص منسوخ، غير منظم، غير منسق، أو حتى غير مفهوم. لأنه مازال نصاً بديلاً ومؤقتاً."> 
+    </div>    
+    </div>
+    <div>
+           <button class="btn btn-danger read-more-btn-second mt-5 btn-sm" runat="server" style=" margin-top: 1rem; width:50px; height: 50px; position: fixed;"><i class="fas fa-exclamation fa-2x"></i></button>
+            <div class="read-more-title-second"  thevalue=" شروط برنامج غيث القرآني "></div>
+            <div class="read-more-content-second" thevalue="هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة حقيقية لتصميم الموقع.
+ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً،دور مولد النص العربى أن يوفر على المصمم عناء البحث عن نص بديل لا علاقة له بالموضوع الذى يتحدث عنه التصميم فيظهر بشكل لا يليق.
+هذا النص يمكن أن يتم تركيبه على أي تصميم دون مشكلة فلن يبدو وكأنه نص منسوخ، غير منظم، غير منسق، أو حتى غير مفهوم. لأنه مازال نصاً بديلاً ومؤقتاً."> 
+    </div>
+      </div>
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -70,18 +38,18 @@
 
         <form asp-action="Create" method="post" role="form"  data-aos="fade-up" data-aos-delay="100">
           <div class="row">
-             <div class="col-md-3 form-group mt-3 mt-md-0">
+             <div class="col-md-3 form-group mt-3 ">
               <input type="text"  class="form-control"  asp-for="Country" placeholder="الدولة">
             </div> 
-            <div class="col-md-3 form-group mt-3 mt-md-0">
+            <div class="col-md-3 form-group mt-3 ">
               <input type="tel" class="form-control" asp-for="phoneNumber" placeholder="رقم الجوال">
               <div class="validate"></div>
             </div>
-            <div class="col-md-3 form-group">
+            <div class="col-md-3 form-group mt-3">
               <input type="text"  class="form-control"  asp-for="Password" placeholder="كلمة المرور">
               <span asp-validation-for="Password" class="text-danger"></span>
             </div>
-            <div class="col-md-3 form-group">
+            <div class="col-md-3 form-group mt-3">
               <input type="text"  class="form-control"  asp-for="Name" placeholder="الاسم">
               <div class="validate"></div>
             </div>
@@ -101,25 +69,49 @@
           <div class="col-md-4 form-group mt-3">
              <select  class="form-select" asp-for="Rewayah"  > 
               <option selected>الرواية</option> @* check its validation *@
-                <option value="حفص">حفص عن عاصم</option>
-                <option value="ورش">ورش عن نافع</option>
-                <option value="قالون">قالون عن نافع</option>
-                <option value="شعبة">شعبة عن عاصم</option>
-                <option value="قنبل">قنبل عن ابن كثير</option>
-                <option value="البزي">البزي عن ابن كثير</option>
-                <option value="الدوري">الدوري عن ابو عمرو</option>
-                <option value="السوسي">السوسي عن ابو عمرو</option>
-                <option value="هشام">هشام عن ابن عامر</option>
-                <option value="ابن ذكوان">ابن ذكوان عن ابن عامر</option>
-                <option value="خلف">خلف عن حمزة</option>
-                <option value="خلاد">خلاد عن حمزة</option>
-                <option value="ابو الحارث ">ابو الحارث عن الكسائي</option>
+                <option value="حفص عن عاصم">حفص عن عاصم</option>
+                <option value="ورش عن نافع">ورش عن نافع</option>
+                <option value="قالون عن نافع">قالون عن نافع</option>
+                <option value="شعبة عن عاصم">شعبة عن عاصم</option>
+                <option value="قنبل عن ابن كثير">قنبل عن ابن كثير</option>
+                <option value="البزي عن ابن كثير">البزي عن ابن كثير</option>
+                <option value="الدوري عن ابو عمرو">الدوري عن ابو عمرو</option>
+                <option value="السوسي عن ابو عمرو">السوسي عن ابو عمرو</option>
+                <option value="هشام عن ابن عام">هشام عن ابن عامر</option>
+                <option value="ابن ذكوان عن ابن عامر">ابن ذكوان عن ابن عامر</option>
+                <option value="خلف عن حمزة">خلف عن حمزة</option>
+                <option value="خلاد عن حمزة">خلاد عن حمزة</option>
+                <option value="ابو الحارث عن الكسائي">ابو الحارث عن الكسائي</option>
                 <option value="الدوري عن الكسائي">الدوري عن الكسائي</option>
               </select>
             </div>
-            <div class="col-md-4 form-group mt-3">
+            <div class="col-md-4 form-group mt-3"> @* must add label  *@
               <input type="text"  class="form-control"  asp-for="SuitableTime" placeholder="الوقت المناسب">
             </div>
+          </div>
+     
+          <div class="row" style="text-align: right;">
+             <div class="col-md-3 form-group mt-3"> @* must add label  *@  
+             <input type="text"  class="form-control" value="لم يتم النحديد بعد"  asp-for="ExamTeacher" hidden>
+            </div>
+
+            <div class="col-md-3 form-group mt-3">
+                <input type="text"  class="form-control" value="لم يتم النحديد بعد" asp-for="CallingProgramExam" hidden>
+              
+            </div>
+            <div class="col-md-3 form-group mt-3"> @* must add label  *@
+              <input type="text"  class="form-control" value="لم يتم النحديد بعد" asp-for="SuitableTimeExam" hidden>
+              @* https://stackoverflow.com/questions/37778489/how-to-make-check-box-list-in-asp-net-mvc *@ @* checkBox *@
+            </div> 
+            <div class="col-md-3 form-group mt-3"> @* must add label  *@
+              <input type="text"  class="form-control" value="ليس هناك ملاحظات" asp-for="TeacherNotes" hidden>
+            </div>  
+            <div class="col-md-3 form-group mt-3"> @* must add label  *@
+              <input type="text"  class="form-control" value="لم يتم النحديد بعد" asp-for="GaithGroup" hidden>
+            </div>        
+
+          </div>
+
           <div class="text-center"><input type="submit" value="تسجيل" class="btn"
                 style=" background: #2eced9;
                 border: 0;
@@ -130,7 +122,60 @@
                 margin-top: 2rem;
                 text-align: center;
                 font-family: 'Dubai', sans-serif;" />
+           </div>
         </form>
 
       </div>
+
+
+
     </section><!-- End Appointment Section -->
+    
+    @section Scripts {
+    <script>
+
+        $(document).ready(function () {
+
+            $("body").on("click", ".read-more-btn", function () {
+
+                 Swal.fire({
+                    title: $(this).parent().find(".read-more-title").attr("thevalue"),
+                        icon: 'info',
+                        html:
+                            $(this).parent().find(".read-more-content").attr("thevalue"),
+                        showCloseButton: true,
+                        showCancelButton: false,
+                        focusConfirm: false,
+                        showConfirmButton: false,
+                        footer: '   '
+                    });
+            }); 
+
+                $("body").on("click", ".read-more-btn-second", function () {
+
+                 Swal.fire({
+                    title: $(this).parent().find(".read-more-title-second").attr("thevalue"),
+                        icon: 'info',
+                        html:
+                            $(this).parent().find(".read-more-content-second").attr("thevalue"),
+                        showCloseButton: true,
+                        showCancelButton: false,
+                        focusConfirm: false,
+                        showConfirmButton: false,
+                        footer: '   '
+                    });
+            }); 
+               
+        });
+
+    </script>
+}
+
+
+
+
+    @* Swal.fire(
+  'The Internet?',
+  'That thing is still around?',
+  'question'
+) *@

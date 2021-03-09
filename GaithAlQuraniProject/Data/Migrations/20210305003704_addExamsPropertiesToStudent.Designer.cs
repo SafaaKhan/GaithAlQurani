@@ -4,14 +4,16 @@ using GaithAlQuraniProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GaithAlQuraniProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210305003704_addExamsPropertiesToStudent")]
+    partial class addExamsPropertiesToStudent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -117,16 +119,11 @@ namespace GaithAlQuraniProject.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CallingProgramExam")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Country")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ExamTeacher")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("GaithGroup")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -147,9 +144,7 @@ namespace GaithAlQuraniProject.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SuitableTimeExam")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TeacherNotes")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("phoneNumber")
@@ -192,34 +187,6 @@ namespace GaithAlQuraniProject.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("News");
-                });
-
-            modelBuilder.Entity("GaithAlQuraniProject.Models.ProgramConditionsDefinition", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ConditionInfo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConditionTitle")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DefinitionInfo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DefinitionTitle")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ProgramConditionsDefinitions");
                 });
 
             modelBuilder.Entity("GaithAlQuraniProject.Models.RegistrationForm", b =>

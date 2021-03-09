@@ -1759,14 +1759,24 @@ section {
 }
 
 
-.card-header h6
+.card-header h6,
+.card-header h4
  {
     text-align: right;
 }
 
-.card-text {
+
+.card-myData .card-title {
+    color: #6c757d;
+    
+}
+
+.card-text,
+.card-title {
     text-align: right;
 }
+
+
 
 .swal2-icon {
     width: 3rem;
@@ -1854,8 +1864,7 @@ select .form-select {
     font-family: "Dubai", sans-serif;
 }
 
-/*#2eced9;
-  #ecf8f9;*/
+
 .col-12:nth-child(odd) .card {
     /*background-color: #D6E8EE;*/
     background-color: #2eced9;
@@ -1864,11 +1873,26 @@ select .form-select {
     font-family: "Dubai", sans-serif;
 }
 
-            /*change hover color*/
-            .item {
-                position: relative;
-                overflow: hidden;
-            }
+
+    .col-12:nth-child(odd) .card a, 
+        .col-12:nth-child(odd) .card hr {
+        color: #6c757d;
+    }
+
+.col-12:nth-child(even) .card a,
+.col-12:nth-child(even) .card hr {
+    color: #6c757d;
+    
+}
+
+ .card hr{
+    height: 2px;
+}
+
+.item {
+    position: relative;
+    overflow: hidden;
+}
 
                 /*100c08*/
                 /*#F5F5F5*/
@@ -1978,7 +2002,16 @@ select .form-select {
 
 
 
+.col-md-6 .card-test_ {
+   
+    color: #000;
+    font-family: "Dubai", sans-serif;
+}
+
+    .col-md-6 .card-test_ .card-body {
+        text-align: right;
+    }
 
 
 
- 
+

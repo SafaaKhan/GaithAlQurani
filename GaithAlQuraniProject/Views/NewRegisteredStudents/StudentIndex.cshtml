@@ -41,6 +41,8 @@
                                 <p class="card-text">@Model.TeacherNotes</p> 
                             <h6 class="card-title">@Html.DisplayNameFor(model => model.GaithGroup)</h6>
                                 <p class="card-text">@Model.GaithGroup</p>
+                            <h6 class="card-title">@Html.DisplayNameFor(model => model.StudentNotes)</h6>
+                                <p class="card-text">@Model.StudentNotes</p>
                             <a class="btn btn-secondary"  style="float: left;" asp-action="StudentEdit" asp-route-id="@Model.Id">تحديث</a>
                             <a class="btn btn-danger" style="float: left; margin-left:1rem" asp-action="ChooseFriend" >اختيار صديقة</a>
                         </div>
@@ -48,3 +50,4 @@
                 </div>
         </div>
     </div>
+</section>

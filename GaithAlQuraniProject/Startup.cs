@@ -45,6 +45,8 @@ namespace GaithAlQuraniProject
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDA5NzUwQDMxMzgyZTM0MmUzMGRFc0FvR2NZTjlJbm1ZMXhGK3czclc0cHl1V0lsSDhvUSswSk1rZitCY1E9");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

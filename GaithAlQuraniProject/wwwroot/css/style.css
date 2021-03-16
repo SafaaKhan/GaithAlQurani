@@ -2014,4 +2014,14 @@ select .form-select {
 
 
 
+.control {
+    width: 300px;
+    height: 10px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.inner-display {
+    display: inline-block;
+}
 

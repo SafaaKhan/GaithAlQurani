@@ -191,7 +191,7 @@ namespace GaithAlQuraniProject.Controllers
            // return View(await _context.NewRegisteredStudent.ToListAsync());
         }
 
-        [HttpPost]
+        [HttpPost] //in case update must be get and in case of back to the page must be post
         public IActionResult StudentIndex_(NewRegisteredStudent newRegisteredStudent)
         {
             //if (id == null) instead Model.is

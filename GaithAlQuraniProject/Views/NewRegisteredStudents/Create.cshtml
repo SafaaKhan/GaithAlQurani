@@ -46,7 +46,8 @@
               <div class="validate"></div>
             </div>
             <div class="col-md-3 form-group mt-3">
-              <input type="text"  class="form-control"  asp-for="Password" placeholder="كلمة المرور">
+              <input type="password"  class="form-control" id="passwordField" runat="server" asp-for="Password" placeholder="كلمة المرور">
+              <input type="checkbox" id="checkBoxPass" /> أظهر كلمة المرور
               <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="col-md-3 form-group mt-3">
@@ -92,37 +93,34 @@
               </select>
             </div>
           </div>
-          <label class="control-label mt-3 " style="text-align: right; float: right; color: red;" > *بتوقيت مكة المكرمة</label>
+
+                      
+           <label class="control-label mt-3 " style="text-align: right; float: right; color: red;" > *بتوقيت مكة المكرمة</label>
           <div class="row mt-4" >
-              <input type="text"  class="form-control"  asp-for="SuitableTime" hidden>
-@*                 <div class="col-md-2 form-group mt-3">
+             <input type="text"  class="form-control"  asp-for="SuitableTime" hidden>
+                 <div class="col-md-2 form-group mt-3">
                      
                 </div>
                 <div class="col-md-2 form-group mt-3">
                     
-                </div>*@
-                <div class="col-md-6 form-group mt-4">
-                     
-                   <span class="inner-display">
-                   <ej-time-picker id="timeEnd" min-time="12:00 AM" max-time="11:59 PM" interval="60" class="form-control" enable-rtl="true"></ej-time-picker>
-                   </span>
-                   <label class="control">نهاية الوقت المناسب للتسميع مع الصديقة</label>
                 </div>
-               @* <div class="col-md-2 form-group mt-3">
-
-                    @* <label class="control-label">نهاية الوقت المناسب للتسميع مع الصديقة</label>
-                </div>*@
-                 <div class="col-md-6 form-group mt-4 ">
+                <div class="col-md-2 form-group mt-4">
                      
-                     <span class="inner-display">
+                     <ej-time-picker id="timeEnd" min-time="12:00 AM" max-time="11:59 PM" interval="60" class="form-control" enable-rtl="true"></ej-time-picker>
+                </div>
+                <div class="col-md-2 form-group mt-3">
+                     <label class="control-label">نهاية الوقت المناسب للتسميع مع الصديقة</label>
+                </div>
+                 <div class="col-md-2 form-group mt-4 ">
+                     
                      <ej-time-picker   id="timeStart" min-time="12:00 AM" max-time="11:59 PM" interval="60" class="form-control" enable-rtl="true"></ej-time-picker>
-                     </span>
-                     <label class="control"> بداية الوقت المناسب للتسميع مع الصديقة</label>
                 </div>
-                @*<div class="col-md-2 form-group mt-3">
-                    @*<label class="control-label"> بداية الوقت المناسب للتسميع مع الصديقة</label>
-                </div>*@
+                <div class="col-md-2 form-group mt-3">
+                    <label class="control-label"> بداية الوقت المناسب للتسميع مع الصديقة</label>
+                </div>
             </div>
+
+
           <div class="row" style="text-align: right;">
              <div class="col-md-3 form-group mt-3"> @* must add label  *@  
              <input type="text"  class="form-control" value="لم يتم النحديد بعد"  asp-for="ExamTeacher" hidden>
@@ -141,6 +139,9 @@
             </div>  
             <div class="col-md-3 form-group mt-3"> @* must add label  *@
               <input type="text"  class="form-control" value="لم يتم النحديد بعد" asp-for="GaithGroup" hidden>
+            </div>  
+            <div class=" form-group mt-3"> @* must add label  *@
+              <input type="text"  class="form-control" value="لم يتم النحديد بعد" asp-for="ExamPassed" hidden>
             </div>        
 
           </div>
@@ -204,6 +205,25 @@
                         footer: '   '
                     });
             }); 
+
+            $("#checkBoxPass").click(function(){
+
+                //var currentPasswordField= $('#passwordField');
+               // var currentPassword=currentPasswordField.val();
+               // currentPasswordField.remove();
+
+                if($(this).is(':checked'))
+                {
+                    $("#passwordField").attr("type", "text");
+                   // $(this).before('<input type="text"  class="form-control" id="passwordField"  asp-for="Password" placeholder="كلمة المرور" value="'+currentPassword+ '">');
+                }
+                else
+                {
+                    $("#passwordField").attr("type", "password");
+                   // $(this).before('<input type="password"  class="form-control" id="passwordField"  asp-for="Password" placeholder="كلمة المرور" value="'+currentPassword+ '">');
+                }
+                 
+            });
                
         });
 
@@ -212,7 +232,7 @@
 
 
     </script>
+     <partial name="_ValidationScriptsPartial" />
 }
-
 
 

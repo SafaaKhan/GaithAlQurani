@@ -24,7 +24,8 @@
           <div class="row">
               <center>
             <div class="col-md-4 form-group mt-3">
-              <input type="text"  class="form-control"  asp-for="Password" placeholder="كلمة المرور">
+               <input type="password"  class="form-control" id="passwordField" runat="server" asp-for="Password" placeholder="كلمة المرور">
+              <input type="checkbox" id="checkBoxPass" /> أظهر كلمة المرور
               <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             </center>
@@ -39,8 +40,34 @@
                 border-radius: 4px;
                 margin-top: 2rem;
                 text-align: center;
-                font-family: 'Dubai', sans-serif;" />
+                font-family: 'Dubai', sans-serif;" /></div>
         </form>
 
       </div>
+      </div>
     </section>
+
+        @section Scripts {
+    <script>
+
+        $(document).ready(function () {
+
+               
+            $("#checkBoxPass").click(function(){
+
+                if($(this).is(':checked'))
+                {
+                    $("#passwordField").attr("type", "text");                  
+                }
+                else
+                {
+                    $("#passwordField").attr("type", "password");
+                }
+                 
+            });
+               
+        });
+
+    </script>
+     
+}

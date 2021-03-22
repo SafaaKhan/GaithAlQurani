@@ -57,10 +57,13 @@ namespace GaithAlQuraniProject.Models
         
         [DisplayName("مجموعة غيث القرآني التي تم الانضمام لها")]
         public string GaithGroup { get; set; }
+        
+        [DisplayName("تم اجتياز الاختبار")]
+        public string ExamPassed { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
-        //[DataType(DataType.Password)]
+        [DataType(DataType.Password)]
         [Display(Name = "كلمة المرور")]
         public string Password { get; set; }
         //suitable time for doing the exam/ fajr/..

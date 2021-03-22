@@ -177,7 +177,7 @@ namespace GaithAlQuraniProject.Controllers
             return View(newRegisteredStudent);
         }
 
-        
+        [HttpPost]
         public IActionResult StudentIndex(StudentLogin studentLogin)
         {
             //if (id == null) instead Model.is

@@ -20,12 +20,15 @@
             </div>
           </div>
           <div class="row">
-              <div class="form-group mt-3 col-md-8">
+              <div class="form-group mt-3 col-md-6">
                 <textarea asp-for=MemorizedPart class="form-control" rows="5" placeholder="مقدار الحفظ من القرآن"></textarea>
                  @Html.ValidationMessageFor(m => m.MemorizedPart)
              </div>
-             <div class="col-md-4 form-group mt-3">
-              <select  class="form-select" asp-for="Rewayah"  > @* from db *@
+                <style>
+               
+                </style>
+             <div class="col-md-6 form-group mt-3 wrapper">
+              <select size="5" class="form-select" asp-for="Rewayah"  > @* from db *@
               <option selected>الرواية</option> @* check its validation *@
                 <option value="حفص">حفص عن عاصم</option>
                 <option value="ورش">ورش عن نافع</option>

@@ -202,21 +202,11 @@ namespace GaithAlQuraniProject.Controllers
             //    return View("StudentIndex", result);
             //}
             return RedirectToAction(nameof(StudentLogin));//fix
-           // return View(await _context.NewRegisteredStudent.ToListAsync());
+                                                          // return View(await _context.NewRegisteredStudent.ToListAsync());
+                                                          
         }
 
-        [HttpPost] //in case update must be get and in case of back to the page must be post
-        public IActionResult StudentIndex_(NewRegisteredStudent newRegisteredStudent)
-        {
-            //if (id == null) instead Model.is
-            //{
-            //    return NotFound();
-            //}
-            //while registration make sure the name does not exist
-            
-            return RedirectToAction("StudentIndex", newRegisteredStudent);//fix
-                                                          // return View(await _context.NewRegisteredStudent.ToListAsync());
-        }
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> StudentEdit(int id, NewRegisteredStudent newRegisteredStudent)
@@ -244,7 +234,7 @@ namespace GaithAlQuraniProject.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction("StudentIndex_", newRegisteredStudent);
+                return View("StudentIndex", newRegisteredStudent);       
             }
             return View(newRegisteredStudent);
         }

@@ -62,20 +62,33 @@
         <form asp-action="StudentEdit" method="post" role="form"  data-aos="fade-up" data-aos-delay="100">
           <input type="hidden" asp-for="Id" />
           <div class="row">
+
+              <input type="text"  class="form-control"  asp-for="Password" hidden>
+
              <div class="col-md-3 form-group mt-3 mt-md-0">
+              
+            </div> 
+            <div class="col-md-3 form-group mt-3 mt-md-0">
               <input type="text"  class="form-control"  asp-for="Country" placeholder="الدولة">
             </div> 
             <div class="col-md-3 form-group mt-3 mt-md-0">
               <input type="tel" class="form-control" asp-for="phoneNumber" placeholder="رقم الجوال">
               <div class="validate"></div>
             </div>
-            <div class="col-md-3 form-group">
+            <div class="col-md-3 form-group mt-3 mt-md-0">
               <input type="text"  class="form-control"  asp-for="Name" placeholder="الاسم">
               <div class="validate"></div>
             </div>
           </div>
               @Html.ValidationMessageFor(m => m.Rewayah)
           <div class="row">
+            <div class="col-md-3 form-group mt-3">
+
+            </div> 
+
+            <div class="col-md-3 form-group mt-3">
+              <input type="text"  class="form-control"  asp-for="StudentNotes" placeholder=" ملاحظات">
+            </div>
             <div class="col-md-3 form-group mt-3">
               <select asp-for="CallingProgram" class="form-select" >
                 <option value="تليقرام">تليقرام</option>
@@ -105,55 +118,59 @@
                 <option value="الدوري عن الكسائي">الدوري عن الكسائي</option>
               </select>
             </div>
-            <div class="col-md-3 form-group mt-3">
-                <h5>الوقت المناسب للتسميع مع الصديقة</h5>
-                <h6>@Model.SuitableTime</h6>
-             <input type="text"  class="form-control"  asp-for="SuitableTime" hidden>
-            </div> 
-            <div class="col-md-3 form-group mt-3">
-              <input type="text"  class="form-control"  asp-for="StudentNotes" placeholder=" ملاحظات">
-            </div>
             </div>
            <div class="row" style="text-align: right;">
              <div class="col-md-3 form-group mt-3"> @* must add label  *@  
-             <input type="text"  class="form-control" value="لم يتم النحديد بعد"  asp-for="ExamTeacher" hidden>
+             <input type="text"  class="form-control"   asp-for="ExamTeacher" hidden>
             </div>
 
             <div class="col-md-3 form-group mt-3">
-                <input type="text"  class="form-control" value="لم يتم النحديد بعد" asp-for="CallingProgramExam" hidden>
+                <input type="text"  class="form-control"  asp-for="CallingProgramExam" hidden>
               
             </div>
             <div class="col-md-3 form-group mt-3"> @* must add label  *@
 
-              <input type="text"  class="form-control" value="لم يتم النحديد بعد" asp-for="SuitableTimeExam" hidden>
+              <input type="text"  class="form-control"  asp-for="SuitableTimeExam" hidden>
               @* https://stackoverflow.com/questions/37778489/how-to-make-check-box-list-in-asp-net-mvc *@ @* checkBox *@
             </div> 
             <div class="col-md-3 form-group mt-3"> @* must add label  *@
-              <input type="text"  class="form-control" value="ليس هناك ملاحظات" asp-for="TeacherNotes" hidden>
+              <input type="text"  class="form-control"  asp-for="TeacherNotes" hidden>
             </div>  
             <div class="col-md-3 form-group mt-3"> @* must add label  *@
-              <input type="text"  class="form-control" value="لم يتم النحديد بعد" asp-for="GaithGroup" hidden>
-            </div>        
+              <input type="text"  class="form-control"  asp-for="GaithGroup" hidden>
+            </div>    
+              <input type="text"  class="form-control"  asp-for="ExamPassed" hidden>        
 
           </div>
-          <label class="control-label mt-3 " style="text-align: right; float: right; color: red;" > *بتوقيت مكة المكرمة</label>
-          <div class="row mt-4" >
-              @*<input type="text"  class="form-control"  asp-for="SuitableTime" disabled>*@
+          <div class="row" style="text-align: right;">
+             <div class="col-md-12 form-group mt-1" >
+              <label> <input style="display: inline; margin-left: 1rem"  type="checkbox" id="checkBoxPass" /> تغيير الوقت</label>
+                  <h6 style="display: inline; margin-left: 1rem" >@Model.SuitableTime</h6>
+                 <h5 style="display: inline; margin-left: 1rem" >الوقت المناسب للتسميع مع الصديقة</h5>
+             <input type="text"  class="form-control"  asp-for="SuitableTime" hidden>
+            </div>  
+
+          </div>
+
+          <div class="row" id="timeHidden" style="display: none;" >
+               <label class="control-label mt-3 " style="text-align: right; float: right; color: red;" > *بتوقيت مكة المكرمة</label>
+              <input type="text"  class="form-control"  asp-for="SuitableTime" hidden>
+              
                  <div class="col-md-2 form-group mt-3">
                      
                 </div>
                 <div class="col-md-2 form-group mt-3">
                     
                 </div>
-                <div class="col-md-2 form-group mt-4">
+
+                <div class="col-md-2 form-group mt-3">
                      
                      <ej-time-picker id="timeEnd" min-time="12:00 AM" max-time="11:59 PM" interval="60" class="form-control" enable-rtl="true"></ej-time-picker>
                 </div>
                 <div class="col-md-2 form-group mt-3">
                      <label class="control-label">نهاية الوقت المناسب للتسميع مع الصديقة</label>
                 </div>
-                 <div class="col-md-2 form-group mt-4 ">
-                     
+                 <div class="col-md-2 form-group mt-3 ">  
                      <ej-time-picker   id="timeStart" min-time="12:00 AM" max-time="11:59 PM" interval="60" class="form-control" enable-rtl="true"></ej-time-picker>
                 </div>
                 <div class="col-md-2 form-group mt-3">
@@ -172,7 +189,7 @@
                 font-family: 'Dubai', sans-serif;" />
                 </div>
                 @* check how asp.net did the link of go back, or chnage the place of button or right another code *@
-                 <div class="text-center"><input type="submit" asp-action="StudentIndex_"  value="الرجوع إلى السابق" class="btn btn-secondary"
+                 <div class="text-center"><input type="submit"   value="الرجوع إلى السابق" class="btn btn-secondary"
                 style=" 
                 border: 0;
                 padding: 7px 25px;
@@ -193,13 +210,34 @@
         $(document).ready(function () {
 
 
-         $("body").on("click", ".btn-click", function () {
-             var b = $('#timeStart').val();
-             var d = $('#timeEnd').val();
-                document.getElementById("SuitableTime").value = b+ " - " +d;
+
+               
+            var check= false;
+             $("#checkBoxPass").click(function(){
+
+                if($(this).is(':checked'))
+                {
+                    check=true;
+                   $("#timeHidden").show();
+                }
+                else
+                {  
+                   $("#timeHidden").hide();
+                }
+                 
+            });
+
+            $("body").on("click", ".btn-click", function () {
+                if(check){
+                 var b = $('#timeStart').val();
+                 var d = $('#timeEnd').val();
+                    document.getElementById("SuitableTime").value = b+ " - " +d;
+                }
+
                 
             }); 
                
         });
     </script>
 }
+

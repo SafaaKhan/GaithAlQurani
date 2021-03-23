@@ -59,12 +59,19 @@ namespace GaithAlQuraniProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(NewRegisteredStudent newRegisteredStudent)
         {
+           
             if (ModelState.IsValid)
             {
-                newRegisteredStudent.Password = HashPassword(newRegisteredStudent.Password);//will assign the hash to the password field
-                _context.Add(newRegisteredStudent);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(StudentLogin));//after seccuss registration pop up message
+                var checkUserName = _context.NewRegisteredStudent.Where(x => x.UserName == newRegisteredStudent.UserName).SingleOrDefault();
+                if(checkUserName == null)
+                {
+
+                    newRegisteredStudent.Password = HashPassword(newRegisteredStudent.Password);//will assign the hash to the password field
+                    _context.Add(newRegisteredStudent);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(StudentLogin));//after seccuss registration pop up message
+                }
+                return View(newRegisteredStudent); /*must an error be showed if the username exists*/
             }
             return View(newRegisteredStudent);
         }
@@ -180,10 +187,18 @@ namespace GaithAlQuraniProject.Controllers
         [HttpPost]
         public IActionResult StudentIndex(StudentLogin studentLogin)
         {
-            //if (id == null) instead Model.is
-            //{
-            //    return NotFound();
-            //}
+            if (ModelState.IsValid)
+            {
+                    var result = _context.NewRegisteredStudent.Where(x => x.Name == studentLogin.Name).Single(); //if
+                    if (VerifyPassword(result.Password, studentLogin.Password))
+                    {
+                        return View("StudentIndex", result);
+                    }
+                             
+                return View("StudentLogin", studentLogin);
+            }
+            return View("StudentLogin", studentLogin);
+            
             //while registration make sure the name does not exist
 
 
@@ -191,19 +206,10 @@ namespace GaithAlQuraniProject.Controllers
             //check in the internet how to implement login
             //send the new password to verifyPass 
             //if true then check the username
-            var result = _context.NewRegisteredStudent.Where(x => x.Name == studentLogin.Name).Single(); //if
-            if (VerifyPassword(result.Password, studentLogin.Password))
-            {
-                return View("StudentIndex", result);
-            }
-            //var result = _context.NewRegisteredStudent.Where(x => x.Name == studentLogin.Name && x.Password == studentLogin.Password).Single();
-            //if (result != null)
-            //{
-            //    return View("StudentIndex", result);
-            //}
-            return RedirectToAction(nameof(StudentLogin));//fix
-                                                          // return View(await _context.NewRegisteredStudent.ToListAsync());
-                                                          
+
+            
+            // return View(await _context.NewRegisteredStudent.ToListAsync());
+
         }
 
        

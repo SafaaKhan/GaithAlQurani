@@ -18,6 +18,10 @@ namespace GaithAlQuraniProject.Models
         [DisplayName("الاسم")]
         public string Name { get; set; }
 
+        [Required(ErrorMessage = " الرجاء إدخال اسم المستخدم ويجب ألا يكون اسم المسنخدم مكرر ")] /*the username exists*/
+        [DisplayName("اسم المستخدم")]
+        public string UserName { get; set; }
+
         [Required(ErrorMessage = "الرجاء إدخال رقم الجوال")]
         [DisplayName("رقم الجوال")]
         public string phoneNumber { get; set; }

@@ -11,7 +11,7 @@
 
     <!-- ======= Appointment Section ======= -->
     <section id="appointment" class="appointment section-bg">
-              <div class="mb-2">
+              <div class="mb-2"> @* put here tooltip *@
            <button class="btn btn-secondary  read-more-btn btn-sm " runat="server" style="  position: fixed; width:50px; height: 50px;"><i class="far fa-question-circle fa-2x"></i></button>
             <div class="read-more-title"  thevalue=" ما هو برنامج غيث القرآني "></div>
             <div class="read-more-content" thevalue="هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
@@ -37,33 +37,35 @@
         </div>
 
         <form asp-action="Create" method="post" role="form"  data-aos="fade-up" data-aos-delay="100">
-          <div class="row">
-             <div class="col-md-3 form-group mt-3 ">
-              <input type="text"  class="form-control"  asp-for="Country" placeholder="الدولة">
-            </div> 
+          <div class="row" >
+            
             <div class="col-md-3 form-group mt-3 ">
               <input type="tel" class="form-control" asp-for="phoneNumber" placeholder="رقم الجوال">
               <div class="validate"></div>
             </div>
-            <div class="col-md-3 form-group mt-3">
+            <div class="col-md-3 form-group mt-3 ">
               <input type="password"  class="form-control" id="passwordField" runat="server" asp-for="Password" placeholder="كلمة المرور">
               <label class="mt-2" style="float: left"> <input type="checkbox" id="checkBoxPass"  /> أظهر كلمة المرور</label>
               <span asp-validation-for="Password" class="text-danger"></span>
             </div>
-            <div class="col-md-3 form-group mt-3">
-              <input type="text"  class="form-control"  asp-for="Name" placeholder="الاسم">
+            <div class="col-md-3 form-group mt-3 ">
+              <input type="text"  class="form-control "  asp-for="UserName" placeholder="اسم المستخدم">
+              <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="col-md-3 form-group mt-3 ">
+              <input type="text"  class="form-control "  asp-for="Name" placeholder="الاسم">
               <div class="validate"></div>
             </div>
           </div>
               @Html.ValidationMessageFor(m => m.Rewayah)
           <div class="row ">
-            <div class="col-md-3 form-group mt-3 mr-2 ml-2">
-              
-            </div>
+             <div class="col-md-3 form-group mt-3 ">
+              <input type="text"  class="form-control"  asp-for="Country" placeholder="الدولة">
+            </div> 
              <div class="col-md-3 form-group mt-3 "> @* must add label  *@
               <input type="text"  class="form-control"  asp-for="StudentNotes" placeholder="ملاحظات">
             </div>
-            <div class="col-md-3 form-group mt-3">
+            <div class="col-md-3 form-group mt-3 ">
               <select asp-for="CallingProgram" class="form-select" >
                 <option value="تليقرام">تليقرام</option>
                 <option value="ايمو">ايمو</option>
@@ -73,7 +75,7 @@
               </select>
               <div class="validate"></div>
             </div>
-          <div class="col-md-3 form-group mt-3">
+          <div class="col-md-3 form-group mt-3 ">
              <select  class="form-select" asp-for="Rewayah"  > 
               <option selected>الرواية</option> @* check its validation *@
                 <option value="حفص عن عاصم">حفص عن عاصم</option>
@@ -96,33 +98,65 @@
 
                       
            
-          <div class="row mt-4" >
+          <div class="row  mt-4" style="text-align: right;" >
+              <div class="col-md-3  mt-2 ">
+                
+             </div>
+              <div class="col-md-3  mt-2 ">
+                 
+             </div>
              <input type="text"  class="form-control"  asp-for="SuitableTime" hidden>
-             <label class="control-label mt-1 " style="text-align: right; float: right; " >الوقت المناسب للتسميع مع الصديقة </label>
-             <label class="control-label mt-2 " style="text-align: right; float: right; color: red;" > *بتوقيت مكة المكرمة</label>
-                 <div class="col-md-2 form-group mt-3">
-                     
+            
+           
+             <div class="col-md-3 form-group mt-2 "> 
+               
+               <table style="float: right;">
+
+                    <tr>
+                        <td class="control">بداية الوقت</td>
+
+                        <td class="control">نهاية الوقت</td>
+
+                    </tr>
+
+                    <tr>   
+                        <td class="control">
+
+                            <span class="inner-display">
+                                 <ej-time-picker id="timeEnd" min-time="12:00 AM" max-time="11:59 PM" interval="60"  enable-rtl="true"></ej-time-picker>
+                              
+                            </span>
+                        </td>
+
+                        <td class="control">
+
+                            <span class="inner-display">
+                                <ej-time-picker   id="timeStart" min-time="12:00 AM" max-time="11:59 PM" interval="60"  enable-rtl="true"></ej-time-picker>
+                              
+
+                            </span>
+
+                        </td>           
+                    </tr>
+                    <tr>
+                        <td></td>
+
+                        <td></td>
+
+                        <td></td>
+
+                    </tr>
+
+                </table>
+                  
                 </div>
-                <div class="col-md-2 form-group mt-3">
-                    
-                </div>
-                <div class="col-md-2 form-group mt-4"> @* add value to the timer *@
-                     
-                     <ej-time-picker id="timeEnd" min-time="12:00 AM" max-time="11:59 PM" interval="60"  class="form-control" enable-rtl="true"></ej-time-picker>
-                </div>
-                <div class="col-md-2 form-group mt-3">
-                     <label class="control-label">نهاية الوقت </label>
-                </div>
-                 <div class="col-md-2 form-group mt-4 ">
-                     
-                     <ej-time-picker   id="timeStart" min-time="12:00 AM" max-time="11:59 PM" interval="60" class="form-control" enable-rtl="true"></ej-time-picker>
-                </div>
-                <div class="col-md-2 form-group mt-3">
-                    <label class="control-label"> بداية الوقت </label>
-                </div>
+
+             <div class="col-md-3  mt-2 " >
+                <label class="control-label  " style="color: red;" > *بتوقيت مكة المكرمة</label>
+                 <label class="control-label  "   >الوقت المناسب للتسميع مع الصديقة </label>
+             </div>  
             </div>
-
-
+          
           <div class="row" style="text-align: right;">
              <div class="col-md-3 form-group mt-3"> @* must add label  *@  
              <input type="text"  class="form-control" value="لم يتم النحديد بعد"  asp-for="ExamTeacher" hidden>
@@ -169,12 +203,12 @@
 
         $(document).ready(function () {
 
-         $("#timeStart").ejTimePicker({  value : "5:10 PM" });
+         //$("#timeStart").ejTimePicker({  value : "5:10 PM" });
          $("body").on("click", ".btn-click", function () {
-              $("#timeStart").ejTimePicker({  value : "5:10 PM" });
-             var b = $('#timeStart').val();
-             var d = $('#timeEnd').val();
-                document.getElementById("SuitableTime").value = b+ " - " +d;
+             // $("#timeStart").ejTimePicker({  value : "5:10 PM" });
+             var a = $('#timeStart').val();
+             var b = $('#timeEnd').val();
+                document.getElementById("SuitableTime").value = a+ " - " +b;
                 
             }); 
 

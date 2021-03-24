@@ -189,7 +189,7 @@ namespace GaithAlQuraniProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                    var result = _context.NewRegisteredStudent.Where(x => x.Name == studentLogin.Name).Single(); //if
+                    var result = _context.NewRegisteredStudent.Where(x => x.UserName == studentLogin.UserName).Single(); //if null ? or does not exist
                     if (VerifyPassword(result.Password, studentLogin.Password))
                     {
                         return View("StudentIndex", result);

@@ -245,11 +245,44 @@ namespace GaithAlQuraniProject.Controllers
             return View(newRegisteredStudent);
         }
 
-        public async Task<IActionResult> ChooseFriend()
+        public async Task<IActionResult> ChooseFriend(string SearchBy, string search, int id)
         {
-            return View(await _context.NewRegisteredStudent.ToListAsync());
+
+            ViewData["studentId"] = id;
+            if (SearchBy == "Rewayah")
+            {
+                return View(await _context.NewRegisteredStudent.Where(x => x.Rewayah.StartsWith(search) || search == null).ToListAsync());
+            }
+            else if (SearchBy == "Country")
+            {
+                return View(await _context.NewRegisteredStudent.Where(x => x.Country.StartsWith(search) || search == null).ToListAsync());
+            }
+            else
+            {
+                return View(await _context.NewRegisteredStudent.Where(x => x.CallingProgram.StartsWith(search) || search == null).ToListAsync());
+
+            }
+            
         }
 
+        public IActionResult addFriend(int id, int idF)
+        {
+            try
+            {
+                var student = _context.NewRegisteredStudent.Where(s => s.Id == id).SingleOrDefault();
+                var friend = _context.NewRegisteredStudent.Where(s => s.Id == idF).SingleOrDefault();
+
+                student.FriendName = friend.Name;//time
+                _context.SaveChanges();
+                return View("StudentIndex", student);
+            }
+            catch
+            {
+                var student = _context.NewRegisteredStudent.Where(s => s.Id == id).SingleOrDefault();
+                return View("ChooseFriend", student);
+            }
+
+        }
 
         private string HashPassword(string password, byte[] salt = null, bool needsOnlyHash = false)
         {

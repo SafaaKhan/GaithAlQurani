@@ -10,8 +10,7 @@ namespace GaithAlQuraniProject.Models
 {
     public class NewRegisteredStudent 
     {
-        //add displayName
-        //add Annotation
+
         public int Id { get; set; }
 
         [Required(ErrorMessage = "الرجاء إدخال الاسم")]
@@ -26,7 +25,7 @@ namespace GaithAlQuraniProject.Models
         [DisplayName("رقم الجوال")]
         public string phoneNumber { get; set; }
 
-        [Required(ErrorMessage = "الرجاء اختيار الرواية ")] //more details
+        [Required(ErrorMessage = "الرجاء اختيار الرواية ")] 
         [DisplayName("الرواية")]
         public string Rewayah { get; set; }
 
@@ -47,7 +46,7 @@ namespace GaithAlQuraniProject.Models
         public string CallingProgramExam { get; set; }
 
         //[Required(ErrorMessage = "الرجاء كتابة الوقت المناسب لاختبار التلاوة ")]
-        [DisplayName("وقت  لاختبار التلاوة")]
+        [DisplayName("وقت  لاختبار التلاوة")]//also make it as a dropdown
         public string SuitableTimeExam { get; set; }   
         
         [DisplayName("المعلمة المسؤولة عن اختبار التلاوة")]
@@ -64,16 +63,14 @@ namespace GaithAlQuraniProject.Models
         
         [DisplayName("تم اجتياز الاختبار")]
         public string ExamPassed { get; set; }
+        
+        [DisplayName("اسم الصديقة")]
+        public string FriendName { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [Required(ErrorMessage = "الرجاء إدخال كلمة مرور ")]
+        [StringLength(100, ErrorMessage = "كلمة المرور يجب أن تكون على الأقل 6 رموز وعلى الأكثر 100 رمز", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "كلمة المرور")]
         public string Password { get; set; }
-        //suitable time for doing the exam/ fajr/..
-        //teacher
-        //group num
-        // exam time
-
     }
 }

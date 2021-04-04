@@ -41,7 +41,7 @@
             
             <div class="col-md-3 form-group mt-3 ">
               <input type="tel" class="form-control" asp-for="phoneNumber" placeholder="رقم الجوال">
-              <div class="validate"></div>
+              <span asp-validation-for="phoneNumber" class="text-danger"></span>
             </div>
             <div class="col-md-3 form-group mt-3 ">
               <input type="password"  class="form-control" id="passwordField" runat="server" asp-for="Password" placeholder="كلمة المرور">
@@ -54,13 +54,14 @@
             </div>
             <div class="col-md-3 form-group mt-3 ">
               <input type="text"  class="form-control "  asp-for="Name" placeholder="الاسم">
-              <div class="validate"></div>
+              <span asp-validation-for="Name" class="text-danger"></span>
             </div>
           </div>
               @Html.ValidationMessageFor(m => m.Rewayah)
           <div class="row ">
              <div class="col-md-3 form-group mt-3 ">
               <input type="text"  class="form-control"  asp-for="Country" placeholder="الدولة">
+              <span asp-validation-for="Country" class="text-danger"></span>
             </div> 
              <div class="col-md-3 form-group mt-3 "> @* must add label  *@
               <input type="text"  class="form-control"  asp-for="StudentNotes" placeholder="ملاحظات">
@@ -73,7 +74,7 @@
                 <option value="واتساب">واتساب</option>
                 <option value="واتساب">واتساب</option>
               </select>
-              <div class="validate"></div>
+              <span asp-validation-for="CallingProgram" class="text-danger"></span>
             </div>
           <div class="col-md-3 form-group mt-3 ">
              <select  class="form-select" asp-for="Rewayah"  > 
@@ -93,6 +94,7 @@
                 <option value="ابو الحارث عن الكسائي">ابو الحارث عن الكسائي</option>
                 <option value="الدوري عن الكسائي">الدوري عن الكسائي</option>
               </select>
+              <span asp-validation-for="Rewayah" class="text-danger"></span>
             </div>
           </div>
 
@@ -148,7 +150,7 @@
                     </tr>
 
                 </table>
-                  
+                  <span asp-validation-for="SuitableTime" class="text-danger"></span>
                 </div>
 
              <div class="col-md-3  mt-2 " >
@@ -178,6 +180,9 @@
             </div>  
             <div class=" form-group mt-3"> @* must add label  *@
               <input type="text"  class="form-control" value="لم يتم النحديد بعد" asp-for="ExamPassed" hidden>
+            </div>  
+            <div class=" form-group mt-3"> @* must add label  *@
+              <input type="text"  class="form-control" value="لم يتم النحديد بعد" asp-for="FriendName" hidden>
             </div>        
 
           </div>

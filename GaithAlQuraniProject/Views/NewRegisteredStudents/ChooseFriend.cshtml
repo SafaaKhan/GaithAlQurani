@@ -4,13 +4,53 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@{
+
+    int studentId = (int) ViewData["studentId"] ;
+   
+}
 <section></section>
 
  <section id="icon-boxes"  class="appointment section-bg p-5">
           <div class="section-title">
              <h2>الصديقات</h2>
         </div>
-    <div class="container" data-aos="fade-up">
+    <div class="container mb-5" data-aos="fade-up" style="overflow: hidden" >
+            <form asp-action="ChooseFriend" method="get" role="form"  data-aos="fade-up" data-aos-delay="100" style="text-align: right;">
+               
+               <div class="row mb-3 text-right" >
+                <div class="col-md-3 form-group mt-3 ">
+                </div>
+                <div class="col-md-3 form-group mt-3 ">
+                </div>
+                 <div class="col-md-3 form-group mt-3 ">
+                  <input type="submit" value="بحث"  class="btn btn-click col-md-4"  
+                    style=" background: #2eced9;
+                    border: 0;
+                    padding: 5px 30px;
+                    color: #fff;
+                    transition: 0.4s;
+                    border-radius: 4px;
+                    font-family: 'Dubai', sans-serif;" />
+                </div>
+                <div class="col-md-3 form-group mt-3 ">
+                   @Html.TextBox("search",null , new { @class = " form-control" }) 
+                </div> 
+              </div>
+                 <style>
+                     .form-check-input:checked {
+                        background-color: #2eced9;
+                        border-color: #2eced9;
+                    }
+                 </style>
+                   <label >الرواية @Html.RadioButton("Searchby", "Rewayah", true, new { @class = "form-check-input"})</label> @* search by based on many factors *@
+                   <label >برنامج الاتصال @Html.RadioButton("Searchby", "CallingProgram",false, new { @class = "form-check-input" })</label> @* only friend with the same group and her name must not be showen *@
+                   <label >الدولة @Html.RadioButton("Searchby", "Country",false, new { @class = "form-check-input" })</label> @* only friend with the same group and her name must not be showen *@
+            </form>
+
+        </div>
+     
+        <div class="container" data-aos="fade-up">
          <div class="row   justify-content-end">
             @foreach (var friend in Model)
             {   
@@ -22,10 +62,12 @@
                          <p>@friend.Rewayah</p> 
                          <p>@friend.SuitableTime</p>
                          <p>@friend.CallingProgram</p>
+                         <p>@friend.Country</p>
                          <p>@friend.StudentNotes</p>
                          <hr />
                            <a ><i data-toggle="tooltip" data-placement="top" title="المحادثة مع الصديقة" class="far fa-comment-dots fa-2x" style="float: left; margin-left:1rem;
                       "></i></a> @* hover and tips *@
+                      <a class="btn btn-danger btn-sm" style="float: left; margin-left:1rem"  href="https://localhost:44369/NewRegisteredStudents/addFriend?id=@studentId&idF=@friend.Id" >اختيار </a>
                        </div>
                     </div>
             </div>
@@ -42,7 +84,8 @@
                 text-align: center;
                 font-family: 'Dubai', sans-serif;">الرجوع إلى السابق</a>
       </div>
-    </div>
+      </div>
+   
   </section>
 
 @section Scripts {

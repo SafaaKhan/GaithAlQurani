@@ -247,8 +247,8 @@ namespace GaithAlQuraniProject.Controllers
 
         public async Task<IActionResult> ChooseFriend(string SearchBy, string search, int id)
         {
-
-            ViewData["studentId"] = id;
+            var student = _context.NewRegisteredStudent.Where(s => s.Id == id).SingleOrDefault();
+            ViewData["student"] = student;
             if (SearchBy == "Rewayah")
             {
                 return View(await _context.NewRegisteredStudent.Where(x => x.Rewayah.StartsWith(search) || search == null).ToListAsync());
@@ -273,6 +273,10 @@ namespace GaithAlQuraniProject.Controllers
                 var friend = _context.NewRegisteredStudent.Where(s => s.Id == idF).SingleOrDefault();
 
                 student.FriendName = friend.Name;//time
+                student.FriendStatusT = "true";//check later
+                _context.SaveChanges();
+                friend.FriendStatusT = "true";//time
+                friend.FriendName = student.Name;//time
                 _context.SaveChanges();
                 return View("StudentIndex", student);
             }

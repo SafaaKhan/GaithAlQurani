@@ -67,6 +67,9 @@ namespace GaithAlQuraniProject.Models
         [DisplayName("اسم الصديقة")]
         public string FriendName { get; set; }
 
+        [DisplayName("حالة الصديقة")]
+        public string FriendStatusT { get; set; }
+
         [Required(ErrorMessage = "الرجاء إدخال كلمة مرور ")]
         [StringLength(100, ErrorMessage = "كلمة المرور يجب أن تكون على الأقل 6 رموز وعلى الأكثر 100 رمز", MinimumLength = 6)]
         [DataType(DataType.Password)]

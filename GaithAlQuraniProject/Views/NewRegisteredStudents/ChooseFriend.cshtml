@@ -6,7 +6,7 @@
 
 @{
 
-    int studentId = (int) ViewData["studentId"] ;
+    NewRegisteredStudent student =  ViewData["student"] as NewRegisteredStudent;
    
 }
 <section></section>
@@ -54,24 +54,26 @@
          <div class="row   justify-content-end">
             @foreach (var friend in Model)
             {   
-           <div class=" col-md-6  col-lg-3  align-items-stretch mb-5 mb-lg-2"> @* change the division to be responsive *@
-            <div >
-                     <div class="card card-test_ text-center" data-aos="fade-up" data-aos-delay="100" style="width:100%; ">
-                        <div class="card-body" >
-                          <h5 >@friend.Name</h5>
-                         <p>@friend.Rewayah</p> 
-                         <p>@friend.SuitableTime</p>
-                         <p>@friend.CallingProgram</p>
-                         <p>@friend.Country</p>
-                         <p>@friend.StudentNotes</p>
-                         <hr />
-                           <a ><i data-toggle="tooltip" data-placement="top" title="المحادثة مع الصديقة" class="far fa-comment-dots fa-2x" style="float: left; margin-left:1rem;
-                      "></i></a> @* hover and tips *@
-                      <a class="btn btn-danger btn-sm" style="float: left; margin-left:1rem"  href="https://localhost:44369/NewRegisteredStudents/addFriend?id=@studentId&idF=@friend.Id" >اختيار </a>
-                       </div>
+                @if(friend.FriendStatusT == "false" && friend.Id != student.Id && friend.GaithGroup == student.GaithGroup && friend.ExamPassed=="true"){
+                    <div class=" col-md-6  col-lg-3  align-items-stretch mb-5 mb-lg-2"> @* change the division to be responsive *@
+                    <div >
+                             <div class="card card-test_ text-center" data-aos="fade-up" data-aos-delay="100" style="width:100%; ">
+                                <div class="card-body" >
+                                  <h5 >@friend.Name</h5>
+                                 <p>@friend.Rewayah</p> 
+                                 <p>@friend.SuitableTime</p>
+                                 <p>@friend.CallingProgram</p>
+                                 <p>@friend.Country</p>
+                                 <p>@friend.StudentNotes</p>
+                                 <hr />
+                                   <a ><i data-toggle="tooltip" data-placement="top" title="المحادثة مع الصديقة" class="far fa-comment-dots fa-2x" style="float: left; margin-left:1rem;
+                              "></i></a> @* hover and tips *@
+                              <a class="btn btn-danger btn-sm" style="float: left; margin-left:1rem"  href="/NewRegisteredStudents/addFriend?id=@student.Id&idF=@friend.Id" >اختيار </a>
+                               </div>
+                            </div>
                     </div>
-            </div>
-          </div>
+                   </div>
+                }    
             }
         </div>
            <div class="text-center"><a asp-action="StudentIndex_" asp-controller="NewRegisteredStudents" class="btn btn-secondary"

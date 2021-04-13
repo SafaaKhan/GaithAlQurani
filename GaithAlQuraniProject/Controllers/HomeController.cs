@@ -52,7 +52,7 @@ namespace GaithAlQuraniProject.Controllers
         [HttpPost]
         public IActionResult SaveRegistratonForm(RegistrationForm registrationForm)
         {
-           /* if (!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 var registrationFormWrong = new RegistrationForm
                 {
@@ -63,8 +63,8 @@ namespace GaithAlQuraniProject.Controllers
                     MemorizedPart = registrationForm.MemorizedPart,
                     Rewayah = registrationForm.Rewayah
                 };
-               
-            }*/
+                return RedirectToAction("Create", registrationForm.GaithGroupId);
+            }
 
             RegistrationForm registrationFormTest = new RegistrationForm
             {

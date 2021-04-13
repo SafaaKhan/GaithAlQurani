@@ -48,7 +48,13 @@
                             <h6 class="card-title">@Html.DisplayNameFor(model => model.FriendName)</h6>
                                 <p class="card-text">@Model.FriendName</p>
                             <a class="btn btn-secondary"  style="float: left;" asp-action="StudentEdit" asp-route-id="@Model.Id">تحديث</a>
-                            <a class="btn btn-danger" style="float: left; margin-left:1rem" href="https://localhost:44369/NewRegisteredStudents/ChooseFriend/@Model.Id" >اختيار صديقة</a>
+                            @{
+                                if(Model.ExamPassed == "true" && Model.FriendStatusT != "true")
+                                {
+                                    <a class="btn btn-danger" style="float: left; margin-left:1rem" href="/NewRegisteredStudents/ChooseFriend/@Model.Id" >اختيار صديقة</a>
+                                }
+                            }
+                            
                         </div>
                     </div>
                 </div>

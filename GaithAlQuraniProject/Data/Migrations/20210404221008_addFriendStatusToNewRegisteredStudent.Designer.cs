@@ -4,14 +4,16 @@ using GaithAlQuraniProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GaithAlQuraniProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210404221008_addFriendStatusToNewRegisteredStudent")]
+    partial class addFriendStatusToNewRegisteredStudent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -132,7 +134,7 @@ namespace GaithAlQuraniProject.Data.Migrations
                     b.Property<string>("FriendName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FriendStatusT")
+                    b.Property<string>("FriendStatus")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GaithGroup")

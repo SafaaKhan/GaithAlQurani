@@ -22,6 +22,7 @@ namespace GaithAlQuraniProject.Data
         public DbSet<ContactUs> ContactUs { set; get; }
         public DbSet<GaithAlQuraniProject.Models.NewRegisteredStudent> NewRegisteredStudent { get; set; }
         public DbSet<GaithAlQuraniProject.Models.ProgramConditionsDefinition> ProgramConditionsDefinitions { get; set; }
+        public DbSet<GaithAlQuraniProject.Models.Attendence> Attendences { get; set; }
         public object ProgramConditionsDefinition { get; internal set; }
     }
 }

@@ -14,5 +14,9 @@ namespace GaithAlQuraniProject.Models
         public string attendenceState { get; set; }
 
         public string Notes { get; set; }
+
+        public NewRegisteredStudent NewRegisteredStudent { get; set; }
+
+        public int NewRegisteredStudentId { get; set; }
     }
 }

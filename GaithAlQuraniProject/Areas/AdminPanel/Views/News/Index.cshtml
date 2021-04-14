@@ -1,0 +1,75 @@
+﻿@model IEnumerable<GaithAlQuraniProject.Models.News>
+
+@{
+    ViewData["Title"] = "Index";  
+}
+
+@*add section hero in layout*@
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div class="table-responsive table--no-card m-b-40">
+        <table class="table table-borderless table-striped table-earning">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Subject)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Image)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ButtonLink)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ButtonContent)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ButtonStatus)
+                    </th>
+                    <th>
+                        More
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+        @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Subject)
+                    </td>
+                    <td>
+                       <img class="d-block img-fluid" src="~/Images/@item.Image" style="height: 50px; width:50px" alt="First Slide">
+                    </td>
+@*                    <td>
+                        @Html.DisplayFor(modelItem => item.Image)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ButtonLink)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ButtonContent)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ButtonStatus)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+        }
+            </tbody>
+        </table>
+</div>

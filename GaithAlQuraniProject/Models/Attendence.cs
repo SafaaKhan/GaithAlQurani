@@ -11,6 +11,10 @@ namespace GaithAlQuraniProject.Models
 
         public string date { get; set; }
 
+        public string groupName { get; set; }
+
+        public string surahName { get; set; }
+
         public string attendenceState { get; set; }
 
         public string Notes { get; set; }

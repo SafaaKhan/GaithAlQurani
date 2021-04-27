@@ -1,5 +1,9 @@
-﻿@model GaithAlQuraniProject.Models.Attendence
+﻿@model  GaithAlQuraniProject.Models.Attendence
 
+
+@{
+    IEnumerable<GaithAlQuraniProject.Models.NewRegisteredStudent> newRegisteredStudent = ViewData["NewRegisteredStudent"] as IEnumerable<GaithAlQuraniProject.Models.NewRegisteredStudent>;
+}
 
 
 <!DOCTYPE html>
@@ -7,45 +11,202 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
+    <title>تحضير</title>
 </head>
 <body>
 
-<h4>Attendence</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="date" class="control-label"></label>
-                <input asp-for="date" class="form-control" />
-                <span asp-validation-for="date" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="attendenceState" class="control-label"></label>
-                <input asp-for="attendenceState" class="form-control" />
-                <span asp-validation-for="attendenceState" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Notes" class="control-label"></label>
-                <input asp-for="Notes" class="form-control" />
-                <span asp-validation-for="Notes" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NewRegisteredStudentId" class="control-label"></label>
-                <select asp-for="NewRegisteredStudentId" class ="form-control" asp-items="ViewBag.NewRegisteredStudentId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+    <h4 class="text-right">تحضير</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-12 text-right">
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+            <div class="card text-right">
+                @* <div class="card-header text-right">
+
+                    @* <label  class="control-label " style="float: right">السورة</label>
+                    <input type="text"  name="surahName" class="form-control" style="width: 50%; float: left"/>
+                    </div>*@
+                <div class="card-body ">
+                    <form action="SpecifyStudentForAttendence" method="get">
+
+                        <div class="row mb-3 text-right">
+                            <div class="col-md-4 form-group mt-3 ">
+                                <label class="control-label">مجموعة غيث</label>
+                                @Html.TextBox("group",null , new { @class = " form-control" })
+                            </div>
+                            <div class="col-md-4 form-group mt-3 ">
+                                <label class="control-label">التاريخ</label>
+                                <input type="date" name="date" class="form-control" />
+                            </div>
+                            <div class="col-md-3 form-group mt-5 ">
+                                <input type="submit" value="بحث" class="btn btn-click "
+                                       style=" background: tomato;
+                        border: 0;
+                        padding: 5px 30px;
+                        color: #fff;
+                        transition: 0.4s;
+                        border-radius: 4px;
+                        font-family: 'Dubai', sans-serif;" />
+                            </div>
+                            <div class="col-md-1 form-group mt-3 ">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @{
+        if (TempData["message"] == null)
+        {
+
+        }
+        else
+        {
+            @* display the date, group, name of surah *@
+            <div class="row ">
+                <div class="col-md-12 text-right">
+                    <form asp-action="SaveAttendance" method="post" role="form">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="table-responsive-sm table-responsive-lg ">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <label class="control-label">الملاحظات</label>
+                                        </th>
+                                        <th>
+                                            <label class="control-label">الحضور</label>
+                                        </th>
+                                        <th>
+                                            <label class="control-label">الاسم</label>
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var student in newRegisteredStudent)
+                                    {
+
+                                        <tr>
+
+                                            <td>
+                                                <input type="hidden" asp-for="Id" />
+                                                <input type="hidden" asp-for="date" />
+                                                <input type="hidden" asp-for="groupName" value="@student.GaithGroup" />
+                                                <input type="hidden" asp-for="surahName" />
+                                                <input type="hidden" asp-for="NewRegisteredStudentId" value="@student.Id" />
+                                                <input asp-for="Notes" class="form-control" />
+
+                                            </td>
+
+                                            <td>
+                                                @*@Html.Display(@Model.attendenceState)*@
+                                                @*<input type="checkbox"  name="attendenceState" value="@student.Id" />  *@
+                                                <select asp-for="attendenceState" class="form-select">
+                                                    <option value="غائبة">غائبة</option>
+                                                    <option value="حاضرة">حاضرة</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                @*@Html.Display(@Model.Notes)*@
+                                                <label class="control-label">@student.Name</label>
+
+                                            </td>
+                                            @*          <td>
+                                                @Html.Display(@Model.NewRegisteredStudent.Id)
+                                                </td>*@
+                                            @* <td>
+                                                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                                </td>*@
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <div class="form-group" style="float: left">
+                                <input type="submit" value="حفظ" class="btn btn-click "
+                                   style=" background: tomato;
+                            border: 0;
+                            padding: 5px 30px;
+                            color: #fff;
+                            transition: 0.4s;
+                            border-radius: 4px;
+                            font-family: 'Dubai', sans-serif;" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
+    }
+
 
 </body>
 </html>
+
+@*                @foreach (var student in newRegisteredStudent)
+    {
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="date" />
+    <input type="hidden" asp-for="NewRegisteredStudentId" value="@student.Id" />
+    <div class="form-group">
+    <label class="control-label">@student.Name</label>
+    </div>
+    <div class="form-group">
+    <label asp-for="attendenceState" class="control-label"></label>
+    <select asp-for="attendenceState" class="form-select">
+    <option value="غائبة">غائبة</option>
+    <option value="حاضرة">حاضرة</option>
+    </select>
+    <span asp-validation-for="attendenceState" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="Notes" class="control-label"></label>
+    <input asp-for="Notes" class="form-control" />
+    <span asp-validation-for="Notes" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="NewRegisteredStudentId" class="control-label"></label>
+    <select asp-for="NewRegisteredStudentId" class="form-control" asp-items="ViewBag.NewRegisteredStudentId"></select>
+    <span asp-validation-for="NewRegisteredStudentId" class="text-danger"></span>
+
+    </div>
+    }*@
+
+
+@*<div class="container" data-aos="fade-up">
+    <div class="row   justify-content-end">
+    @foreach (var student in newRegisteredStudent)
+    {
+    <div class=" col-md-6  col-lg-3  align-items-stretch mb-5 mb-lg-2">
+
+    <div>
+    <div class="card card-test_ text-center" data-aos="fade-up" data-aos-delay="100" style="width:100%; ">
+    <div class="card-body">
+    <h5>@student.Name</h5>
+    <p>@student.Rewayah</p>
+    <p>@student.SuitableTime</p>
+    <p>@student.CallingProgram</p>
+    <p>@student.Country</p>
+    <p>@student.StudentNotes</p>
+    <hr />
+    <a>
+    <i data-toggle="tooltip" data-placement="top" title="المحادثة مع الصديقة" class="far fa-comment-dots fa-2x" style="float: left; margin-left:1rem;
+    "></i>
+    </a>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    }
+
+
+    </div>
+    </div>*@

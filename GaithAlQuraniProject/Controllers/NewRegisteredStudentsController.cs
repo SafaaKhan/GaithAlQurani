@@ -242,7 +242,7 @@ namespace GaithAlQuraniProject.Controllers
                 }
                 return View("StudentIndex", newRegisteredStudent);       
             }
-            return View(newRegisteredStudent);
+            return View(newRegisteredStudent); 
         }
 
         public async Task<IActionResult> ChooseFriend(string SearchBy, string search, int id)
